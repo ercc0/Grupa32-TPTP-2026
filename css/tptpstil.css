@@ -1,0 +1,148 @@
+* {
+    margin: 0; /* uklanja defaultne margine svih elemenata */
+    padding: 0; /* uklanja defaultne paddinge svih elemenata */
+    box-sizing: border-box; /* osigurava da padding i border budu ukljuceni u ukupnu širinu i visinu elemenata */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /*fontovi koji se koriste na stranici*/
+}
+
+body {
+    background-color: #1C2538; /*boja pozadine*/
+    color: #ffffff; /*boja teksta*/
+}
+
+/*klasa navbar*/
+.navbar {
+    background-color: rgba(18, 24, 38, 0.95); /*boja i providnost*/
+
+    height: 80px; /*fiksna visina navbara*/
+    display: flex; /*lakse rasporedjivanje elemenata*/
+    justify-content: center; /*sadrzaj se centrira*/ /*horizontalno*/
+    align-items: center; /*elemente centrira vertikalno*/
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    /*prethodni dio koda nam sluzi da navbar ostane na vrhu stranice i da se ne preklapa sa drugim elementima koji se nalaze ispod njega*/ 
+    /*npr kada skrolamo stranicu*/
+
+    border-bottom: 2px solid #00d4ff; /*tanka linija ispod navbara u neon plavoj boji*/
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2); /*daje sjenku ispod navbara za dodatni futuristicki efekt*/
+}
+
+/*klasa nav-container*/ 
+/*sluzi da grupise logo i linkove zajedno*/
+.navigacija {
+    display: flex; /*da ne bi logo i linkovi bili jedan ispod drugog*/
+    justify-content: space-between; /*da se logo nalazi na lijevoj strani a linkovi na desnoj*/
+    align-items: center; /*centrira vertikalno logo i linkove*/
+
+    width: 100%; /*da navbar zauzima cijelu sirinu ekrana*/
+    max-width: 1200px; /*da navbar ne bude presirok na velikim ekranima*/
+    padding: 0 30px; /*unutrasnji razmak sa lijeve i desne strane*/
+}
+
+/*klasa logo*/
+
+.logo{
+    height: 60px; /*fiksna velicina logo-a da ogranici velicinu slike*/
+    cursor: pointer; /*mijenja oblik cursora u pointer kada predje preko logo-a, sto sugerira da se moze kliknuti*/
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5)); /*za razliku od shadow-boxa, drop-shadow dodaje sjaj samo oko vidljivih dijelova slike, 
+    sto je idealno za logo sa prozirnom pozadinom*/ /*5px odredjuje koliko ce sjaj biti rasprostranjen, a rgba(0, 212, 255, 0.5) daje plavi sjaj sa 50% providnosti*/
+    transition: 0.3s; /*brzina promjene efekta kada se pređe misem preko logo-a, sto daje glatki efekt*/
+}
+
+/*.logo se odnosi na element koji je povezan sa klasom logo, dok :hover kaze pretrazivacu da primjeni sve unutar ovog bloka kada korisnik predje misem preko 
+elemeneta sa klasom logo*/
+.logo:hover {
+    transform: scale(1.05); /*povecava logo 5% u odnosu na orginalnu velicinu*/ /*ovo nam sluzi kao da pokaze korisniku preko ceka prelazi misem*/
+}
+
+/*klasa nav-menu i nav-item se odnose na navigacijske linkove unutar navbara, gdje nav-menu grupise sve linkove zajedno, a nav-item predstavlja pojedinacni link*/
+.nav-menu {
+    display: flex; /*da se linkovi prikazuju jedan pored drugog*/
+    list-style: none; /*uklanja oznake (bullets) sa liste*/
+    align-items: center; /*centrira vertikalno linkove unutar navbara*/
+}
+
+.nav-item {
+    margin-left: 30px; /*razmak izmedju linkova za 30px*/
+}
+/*nav-item a se odnosi na linkove unutar navbara, "a" predstavlja anchor tag koji se koristi za kreiranje linkova*/
+.nav-item a {
+    text-decoration: none; /*uklanja podvlacenje (underline ) sa linkova*/
+    color: #e0e0e0; /*boja linkova*/
+    font-weight: 600;/*debljina fonta*/
+    text-transform: uppercase; /*pretvara tekst na linkovima u velika slova*/
+    letter-spacing: 1px; /*razmak izmedju slova*/
+    transition: 0.3s ease; /*brzina promjena efekta kada se misem predje preko nekog od linkova koji se nalaze u navbaru*/
+}
+
+/*.nav-item a se odnosi na linkove koji u navbaru, dok hover kaze pretrazivacu da primjeni sljedece efekte kada korisnik misem predje preko nekog od linkova u navbaru*/
+.nav-item a:hover {
+    color: #00d4ff; /*boja linka*/
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);/*sjaj oko linka 10px je rasprostranjenost sjaja, 0,212,255 je boja , 0.8 je 80% providnosti sjaja*/
+}
+
+/*klasa hamburger koja nam sluzi da uredu burger meni koji smo dodali pomocu js*/
+.hamburger {
+    display: none; /*sakriva hamburger meni na vecim ekranima, jer ce se prikazivati samo na mobilnim uredjajima*/
+    flex-direction: column; /*da se linije burger menija prikazuju jedna ispod druge*/
+    cursor: pointer; /*mijenja oblik cursora u pointer kada predje preko hamburger menija, sto sugerira da se moze kliknuti*/
+}
+/*klasa bar za linije hamburger menija*/
+.bar {
+    width: 25px; /*fiksirana sirina linija*/
+    height: 2px; /*fiksirana visina linija*/
+    background-color: #00d4ff; /*boja linija hamburger menija*/
+    margin: 5px 0;/*razmak izmedju linija*/
+    transition: 0.4s; /*brzina efekta kada se hamburger meni klikne*/
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); /*dodaje sjaj oko linija*/
+}
+
+/*css kod koji nam sluzi za mobilne uredjaje zbog hamburger menija*/
+/*ovo ce da radi samo kada je sirina ekrana 768px ili manja, sto je tipicna sirina za mobilne uredjaje*/
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: flex; 
+    }
+    .nav-menu {
+        position: absolute;/*postavlja hamburger meni tako da se preklapa preko ostatka stranice kada se otvori*/
+        top: 80px;
+        left: -100%; /*sakriva hamburger meni sa lijeve strane ekrana kada nije aktivan*/
+        flex-direction: column; /*da se linkovi prikazuju jedan ispod drugog*/
+        background-color: #0a0a0a;
+        width: 100%; /*sirina menija kada se aktivira da zauzima cijelu sirinu ekrana*/
+        height: calc(100vh - 80px); /*calc znaci da ce visina menija biti jednaka visini ekrana gdje 100vh znaci 100% visine viewporta, a oduzima se 80px zbog visine navbara*/
+        transition: 0.4s ease-in-out; /*ease-in-out znaci da ce efekat poceti sporo, zatim ubrzati, a zatim opet usporiti kada se hamburger meni otvara ili zatvara*/
+        border-top: 1px solid #333; /*linija koja odvaja navbar od hamburger menija kada se otvori*/
+    }
+    /*nav-menu je naziv klase dok .active je naziv klase koja nam sluzi da aktivira hamburger meni kada kliknemo na njega*/
+    .nav-menu.active {
+        left: 0; /*pomjera hamburger meni na lijevu stranu ekrana da korisniku bude vidljiv*/
+    }
+
+    .nav-item {
+        margin: 25px 0; /*razmak izmedju linkova*/
+    }
+
+    .nav-item a {
+        font-size: 1.5rem; /*velicina fonta linkova*/
+    }
+}
+/* klasa za pozadinsku sliku*/
+.pozadina{
+    width: 100%; /*postavlja sliku punom sirinom*/
+    height: 100vh; /* zauzima 100% visine ekrana */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/glavnilogo.png'); /*implementacija slike*/
+    background-size: cover; /* slika ispunjava cijeli prostor bez razvlacenja */
+    background-position: center; /* slika je uvijek u sredini */
+    background-repeat: no-repeat; /*sprijecava da se slika ponovi (da i preko same sebe ili elemenata)*/
+    
+    display: flex;
+    flex-direction: column; /*da se poremetimo raspored elemenata na stranici*/
+}
+.footer{
+    color: white;
+    text-align: center;
+}

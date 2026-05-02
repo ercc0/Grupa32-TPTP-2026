@@ -1,0 +1,52 @@
+<!DOCTYPE html> <!--govori browseru da se radi o HTML5 standardu-->
+<html lang="bs"> <!--govori da nam je stranica na bosanskom jeziku-->
+<head> <!--zaglavlje stranice-->
+    <meta charset="UTF-8"> <!--omogucava koristenje nasih slova kao č,ć,š,đ,ž-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--da se moze otvoriti na mobilnom uredjaju-->
+    <link rel="stylesheet" href="css/tptpstil.css"> <!--povezujemo sa eksternim css fajlom-->
+    <link rel="icon" type="png" href="images/"> <!--slika koja se nalazi na tabu-->
+    <title>Welcome to EEE!</title> <!--tekst na tabu-->
+</head>
+<body> <!--vidljivi dio stranice-->
+    <header class="pozadina"> <!--uvodni sadrzaj stranice koji je spojen sa klasom "pozadina"-->
+        <nav class="navbar"> <!--navigation bar povezan sa klasom "navbar"-->
+            <div class="navigacija"> <!--container u kojem smjestamo elemente navbara-->
+                <div class="logo"> <!--container za logo na lijevoj strani-->
+                    <img src="images/logo1p.png" alt="Logo Firme" class="logo">
+                    <!--slika naseg loga koja ima alt text "Logo Firme" i povezan klasom "logo"-->
+                </div>
+
+                <ul class="nav-menu"> <!--unordered list za meni na navbaru-->
+                    <li class="nav-item"><a href="index.html">Home</a></li> <!--list item povezan sa klasom "nav-item" cijim klikom na element nas salje na link-->
+                    <li class="nav-item"><a href="sadrzaj.html">Sadržaj</a></li>
+                    <li class="nav-item"><a href="projekti.html">Projekti</a></li>
+                    <li class="nav-item"><a href="FAQ.html">FAQ</a></li>
+                    <li class="nav-item"><a href="about.html">About us</a></li>
+                    <li class="nav-item"><a href="kontakt.html">Kontakt</a></li>
+                    <li class="nav-item"><a href="https://github.com/ercc0/Grupa32-TPTP-2026">Github Repo</a></li>
+                </ul> <!--kraj unordered liste-->
+
+                <!--container koji nam sluzi za hamburger meni, povezan sa klasom "hamburger"-->
+                <!--povezan je sa id "hamburger" koji nam sluzi kada se smanji rezolucija slike
+                i ne vidi se navigation bar kako treba da nam se stvori kao "hamburger" meni
+                za laksu preglednost-->
+                <!--Za hamburger mi je trebala pomoc AI, ovaj dio sa js-->
+                <div class="hamburger" id="hamburger"> 
+                    <!--dodaje crtice na hamburger meni-->
+                    <!--span koristimo jer nema crtica u htmlu, pa pomocu span i cssa iz klase bar napravimo te crtice-->
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--footer, text na kraju stranice-->
+    <footer class="footer">
+        <b>Ermin Murić, Ermin Delić, Enis Srabović &copy; 2026. </b>
+    </footer>
+    <!--povezujemo eksterni java skript-->
+    <script src="js/tptpskripte.js"></script>
+</body>
+</html>
