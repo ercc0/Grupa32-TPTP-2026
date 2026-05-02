@@ -146,3 +146,91 @@ elemeneta sa klasom logo*/
     color: white;
     text-align: center;
 }
+
+
+/* Klasa za pozadinsku sliku na unutrašnjim stranicama (npr. sadržaj) */
+.pozadina-mini {
+    width: 100%; /* puna širina */
+    height: 50vh; /* zauzima pola visine ekrana radi bolje vidljivosti sadržaja */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(28, 37, 56, 1)), url('../images/glavnilogo.png'); /* preliv boja u sliku */
+    background-size: cover; /* slika popunjava prostor bez razvlačenja */
+    background-position: center; /* centrirana slika */
+    display: flex;
+    flex-direction: column; /* vertikalno slaganje elemenata u headeru */
+}
+
+/* Stil za tekst u zaglavlju */
+.hero-text {
+    text-align: center; /* centriranje teksta */
+    margin-top: 50px; /* razmak od vrha */
+}
+
+.hero-text h1 {
+    font-size: 3rem; /* velika veličina slova */
+    color: #00d4ff; /* neon plava boja */
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6); /* sjaj oko slova */
+}
+
+/* Glavni kontejner za sadržaj */
+.sadrzaj-kontejner {
+    max-width: 1200px; /* maksimalna širina na velikim ekranima */
+    margin: -50px auto 50px; /* pomjera sadržaj prema gore da malo preklopi sliku (moderan izgled) */
+    padding: 20px; /* unutrašnji odmak */
+}
+
+/* Grid raspored kartica */
+.grid-sekcija {
+    display: grid; /* aktivira grid sistem */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* automatski raspoređuje broj kolona zavisno od širine ekrana */
+    gap: 30px; /* razmak između kartica */
+}
+
+/* Stil pojedinačne kartice */
+.kartica {
+    background: rgba(18, 24, 38, 0.8); /* tamna boja sa malo prozirnosti */
+    padding: 40px; /* prostor unutar kartice */
+    border-radius: 15px; /* zaobljeni ćoškovi */
+    border: 1px solid #333; /* suptilna ivica */
+    text-align: center; /* sav tekst centriran */
+    transition: 0.4s ease; /* glatkoća efekta promjene */
+}
+
+/* Efekat kada se mišem pređe preko kartice */
+.kartica:hover {
+    border-color: #00d4ff; /* ivica postaje neon plava */
+    transform: translateY(-10px); /* kartica se lagano podigne uvis */
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15); /* sjena ispod kartice */
+}
+
+/* Veličina ikone u kartici */
+.kartica-ikona {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Dugmad u karticama */
+.dugme-link {
+    display: inline-block; /* omogućava marginu i padding na linku */
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: transparent; /* prozirna unutrašnjost */
+    border: 2px solid #00d4ff; /* neon plava ivica */
+    color: #00d4ff;
+    text-decoration: none; /* uklanja podvlačenje teksta */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Efekat na dugme pri prelasku mišem */
+.dugme-link:hover {
+    background: #00d4ff; /* dugme se ispuni plavom bojom */
+    color: #1c2538; /* boja teksta postaje tamna */
+}
+
+/* Stil za dodatni info tekst */
+.info-tekst {
+    margin-top: 80px;
+    text-align: center;
+    line-height: 1.8; /* razmak između redova radi lakšeg čitanja */
+}
