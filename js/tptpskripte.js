@@ -25,3 +25,11 @@ window.addEventListener('scroll', () => {
         navbar.style.background = 'rgba(18, 24, 38, 0.95)'; // vrati na originalnu boju kada smo na vrhu
     }
 });
+
+// Omogućava da link "Skoči na vrh" polako skrola stranicu umjesto da naglo skoči
+document.querySelector('a[href^="#vrh"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+    });
+});
