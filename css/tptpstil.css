@@ -1,6 +1,4 @@
-/* ==========================================================================
-   DIO 1: TVOJI ORIGINALNI STILOVI (SVE ŠTO SI POSLAO)
-   ========================================================================== */
+
 
 * {
     margin: 0; /* uklanja defaultne margine svih elemenata */
@@ -323,10 +321,6 @@ body {
         grid-template-columns: 1fr;
     }
 }
-
-/* ==========================================================================
-   DIO 2: NOVI STILOVI ZA "ABOUT US" (MODIFIKOVANI NAZIVI)
-   ========================================================================== */
 
 /* Klasa za glavni omotac About Us stranice da ne utice na ostale */
 .about-stranica-body {
