@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8"> <!-- Postavlja kodiranje znakova na UTF-8 za podršku naših slova (č, ć, dž...) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Osigurava da se stranica ispravno prikazuje na mobitelima (responzivnost) -->
+    <title>O Nama | EEE</title>
+    
+    <link rel="stylesheet" href="tptpstil.css"> <!-- Povezivanje sa tvojim velikim, spojenim CSS fajlom -->
+  
+    <!-- Učitavanje fontova: Orbitron za futuristički izgled i Roboto za obični tekst -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body class="about-stranica-body"> <!-- Klasa koja aktivira specifičnu pozadinu i fontove za "About Us" stranicu -->
+
+    <!-- Navbar: Koristi klase iz tvog prvog CSS-a kako bi navigacija bila ista na svim stranicama -->
+    <nav class="navbar">
+        <div class="navigacija"> <!-- Kontejner koji drži logo i linkove unutar maksimalne širine -->
+            <div class="logo">EEE</div> <!-- Tvoj logo element -->
+            
+            <ul class="nav-menu"> <!-- Lista navigacijskih linkova (promijenjeno u nav-menu radi CSS-a) -->
+                <li class="nav-item"><a href="index.html">Početna</a></li>
+                <li class="nav-item"><a href="sadrzaj.html">Sadrzaj</a></li>
+                <li class="nav-item"><a href="#">Projekti</a></li>
+                <li class="nav-item"><a href="#">FAQ</a></li>
+            </ul>
+
+            <!-- Hamburger meni: Tri linije koje se pojavljuju na mobitelu (klasa .bar u CSS-u) -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero sekcija: Veliko zaglavlje stranice sa pozadinskom slikom -->
+        <section class="about-hero-sekcija">
+            <h1 id="hero-title">Više od običnog gaminga.</h1> <!-- Glavni naslov sa neon efektom iz CSS-a -->
+        </section>
+
+        <!-- Glavna sekcija sa tekstom i statistikama -->
+        <section class="about-glavni-kontejner">
+            <div class="about-grid-layout"> <!-- Grid sistem koji dijeli ekran na dvije kolone (tekst i stats) -->
+                
+                <!-- Lijeva strana: Tekstualni sadržaj -->
+                <div class="about-text">
+                    <h2>O nama</h2>
+                    <p>Osnovani 2024. godine, naš cilj je pružiti najpreciznije recenzije, najnovije vijesti iz industrije i prostor gdje svaki gamer može pronaći svoj dom. Bez obzira igraš li na PC-u, konzoli ili mobilnom uređaju, ovdje si dobrodošao.</p>
+                </div>
+
+                <!-- Desna strana: Statistike u tamnom okviru (stats-box) -->
+                <div class="about-stats-box">
+                    <div class="about-stat-item">
+                        <!-- data-target služi za JavaScript animaciju brojanja -->
+                        <h3 class="counter" data-target="150">150</h3> 
+                        <p>Recenzija</p>
+                    </div>
+                    <div class="about-stat-item">
+                        <h3 class="counter" data-target="5000">5000</h3>
+                        <p>Članova</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer: Podnožje stranice sa specifičnim stilom za About Us -->
+    <footer class="about-footer-stil">
+        <p>&copy; 2026 EEE. Sva prava zadržana.</p>
+    </footer>
+
+    <!-- Povezivanje JavaScripta za hamburger meni i animacije brojeva -->
+    <script src="tptpskripte.js"></script>
+</body>
+</html>
