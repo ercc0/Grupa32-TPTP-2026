@@ -2,12 +2,20 @@
 <html lang="bs"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/tptpstil.css"> <link rel="icon" type="png" href="images/logo1p.png"> <title>Sadržaj - EEE Gaming</title>
+    <link rel="stylesheet" href="css/tptpstil.css"> <link rel="icon" type="png" href="images/logo1p.png">
+    <title>Sadržaj - EEE Gaming</title>
 </head>
 <body>
-    <header class="pozadina-mini"> <nav class="navbar"> <div class="navigacija"> <div class="logo"> <img src="images/logo1p.png" alt="Logo Firme" class="logo">
+    <div id="vrh"></div>
+
+    <header class="pozadina-mini">
+        <nav class="navbar">
+            <div class="navigacija">
+                <div class="logo">
+                    <img src="images/logo1p.png" alt="Logo Firme" class="logo">
                 </div>
-                <ul class="nav-menu"> <li class="nav-item"><a href="index.html">Home</a></li>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html">Home</a></li>
                     <li class="nav-item"><a href="sadrzaj.html">Sadržaj</a></li>
                     <li class="nav-item"><a href="projekti.html">Projekti</a></li>
                     <li class="nav-item"><a href="FAQ.html">FAQ</a></li>
@@ -15,42 +23,92 @@
                     <li class="nav-item"><a href="kontakt.html">Kontakt</a></li>
                     <li class="nav-item"><a href="https://github.com/ercc0/Grupa32-TPTP-2026">Github Repo</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger"> <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                 </div>
             </div>
         </nav>
-        <div class="hero-text"> <h1>Sadržaj</h1> <p>Istražite svijet EEE Gaming produkcije</p> </div>
+        <div class="hero-text">
+            <h1>Sadržaj</h1>
+            <p>Sve karakteristike i resursi naše firme</p>
+        </div>
     </header>
 
-    <main class="sadrzaj-kontejner"> <section class="grid-sekcija">
-
-            <div class="kartica"> <div class="kartica-ikona">🎮</div> 
-            <h3>Naše Igre</h3> <p>Od FPS naslova do RPG avantura, pravimo svjetove u kojima ćete se izgubiti.</p>
-            <a href="projekti.html" class="dugme-link">Vidi više</a> 
-            </div>
-
-            <div class="kartica"> <div class="kartica-ikona">🚀</div>
-                <h3>Tehnologija</h3>
-                <p>Koristimo najnoviji Unreal Engine 5 i AI tehnologije za realističan gameplay.</p>
-                <a href="tehnologije.html" class="dugme-link">Tehnologije</a>
-            </div>
-
-            <div class="kartica"> <div class="kartica-ikona">👥</div>
-                <h3>Zajednica</h3>
-                <p>Pridružite se hiljadama igrača na našem Discord serveru i forumu.</p>
-                <a href="kontakt.html" class="dugme-link">Pridruži se</a>
-            </div>
+    <main class="sadrzaj-kontejner">
+        
+        <section class="sekcija-sadrzaj">
+            <h2>Kategorije naših usluga</h2>
+            <ul class="glavna-lista"> <li>Razvoj Softvera
+                    <ul> <li>Game Engine (Unreal Engine 5)</li>
+                        <li>Backend sistemi za multiplayer</li>
+                    </ul>
+                </li>
+                <li>Digitalni Dizajn
+                    <ul>
+                        <li>3D Modelovanje karaktera</li>
+                        <li>UI/UX dizajn interfejsa</li>
+                    </ul>
+                </li>
+            </ul>
         </section>
 
-        <section class="info-tekst"> <h2>Vizija EEE Firme</h2>
-            <p>Kao što je navedeno u našem projektu, Ermin, Ermin i Enis rade na kreiranju unikatnog digitalnog iskustva. Naš cilj je postaviti nove standarde u regionalnoj gaming industriji.</p>
+        <section class="sekcija-sadrzaj">
+            <h2>Cjenovnik i karakteristike licenci</h2>
+            <table class="tptp-tabela">
+                <thead>
+                    <tr>
+                        <th>Paket</th>
+                        <th>Cijena</th>
+                        <th>Podrška</th>
+                        <th>Trajanje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Starter</td><td>0 KM</td><td>Zajednica</td><td>30 dana</td></tr>
+                    <tr><td>Pro</td><td>49 KM</td><td>Email 24/7</td><td>1 godina</td></tr>
+                    <tr><td>Elite</td><td>149 KM</td><td>Direktni poziv</td><td>Neograničeno</td></tr>
+                    <tr><td>Studio</td><td>499 KM</td><td>Tim stručnjaka</td><td>Po projektu</td></tr>
+                    <tr><td>Enterprise</td><td>Kontakt</td><td>Custom</td><td>Po dogovoru</td></tr>
+                </tbody>
+            </table>
         </section>
+
+       <section class="sekcija-okvir" style="text-align: center;">
+            <h2>Interaktivna zona (Image Map)</h2>
+            <p>Kliknite na lijevu ili desnu stranu slike ispod:</p>
+            
+            <div style="display: flex; justify-content: center; margin-top: 20px;">
+                <img src="images/glavnilogo.png" usemap="#mapa-firme" alt="Interaktivni logo" 
+                     style="max-width: 100%; height: auto; width: 500px; border: 1px solid #333;">
+                
+                <map name="mapa-firme">
+                    <area shape="rect" coords="0,0,300,300" alt="Početna" href="index.html">
+                    <area shape="circle" coords="450,150,100" alt="Kontakt" href="kontakt.html">
+                </map>
+            </div>
+        </section>
+        <section class="sekcija-okvir">
+            <h2>Galerija projekata</h2>
+            <div class="galerija-mreza" style="max-width: 800px; margin: 0 auto;">
+                <img src="images/slika1.png" alt="Prikaz RPG okruženja">
+                <img src="images/slika2.png" alt="3D model glavnog heroja">
+                <img src="images/slika3.png" alt="Koncept art pustinje">
+                <img src="images/slika4.png" alt="UI dizajn menija">
+                <img src="images/slika5.png" alt="Prikaz koda u editoru">
+                <img src="images/slika6.png" alt="Timski rad u uredu">
+            </div>
+        </section>
+        
+        <div class="bookmark-link">
+            <a href="#vrh">↑ Skoči na vrh stranice</a>
+        </div>
+
     </main>
 
-    <footer class="footer"> <b>Ermin Murić, Ermin Delić, Enis Srabović &copy; 2026. </b>
+    <footer class="footer">
+        <b>Ermin Murić, Ermin Delić, Enis Srabović &copy; 2026. </b>
     </footer>
 
-    <script src="js/tptpskripte.js"></script> </body>
+    <script src="js/tptpskripte.js"></script>
+</body>
 </html>
