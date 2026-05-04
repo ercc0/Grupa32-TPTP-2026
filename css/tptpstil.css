@@ -1,3 +1,7 @@
+/* ==========================================================================
+   DIO 1: TVOJI ORIGINALNI STILOVI (SVE ŠTO SI POSLAO)
+   ========================================================================== */
+
 * {
     margin: 0; /* uklanja defaultne margine svih elemenata */
     padding: 0; /* uklanja defaultne paddinge svih elemenata */
@@ -43,22 +47,18 @@ body {
 }
 
 /*klasa logo*/
-
 .logo{
     height: 60px; /*fiksna velicina logo-a da ogranici velicinu slike*/
     cursor: pointer; /*mijenja oblik cursora u pointer kada predje preko logo-a, sto sugerira da se moze kliknuti*/
-    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5)); /*za razliku od shadow-boxa, drop-shadow dodaje sjaj samo oko vidljivih dijelova slike, 
-    sto je idealno za logo sa prozirnom pozadinom*/ /*5px odredjuje koliko ce sjaj biti rasprostranjen, a rgba(0, 212, 255, 0.5) daje plavi sjaj sa 50% providnosti*/
-    transition: 0.3s; /*brzina promjene efekta kada se pređe misem preko logo-a, sto daje glatki efekt*/
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5)); /*za razliku od shadow-boxa, drop-shadow dodaje sjaj samo oko vidljivih dijelova slike*/ 
+    transition: 0.3s; /*brzina promjene efekta kada se pređe misem preko logo-a*/
 }
 
-/*.logo se odnosi na element koji je povezan sa klasom logo, dok :hover kaze pretrazivacu da primjeni sve unutar ovog bloka kada korisnik predje misem preko 
-elemeneta sa klasom logo*/
 .logo:hover {
-    transform: scale(1.05); /*povecava logo 5% u odnosu na orginalnu velicinu*/ /*ovo nam sluzi kao da pokaze korisniku preko ceka prelazi misem*/
+    transform: scale(1.05); /*povecava logo 5% u odnosu na orginalnu velicinu*/
 }
 
-/*klasa nav-menu i nav-item se odnose na navigacijske linkove unutar navbara, gdje nav-menu grupise sve linkove zajedno, a nav-item predstavlja pojedinacni link*/
+/*klasa nav-menu i nav-item se odnose na navigacijske linkove*/
 .nav-menu {
     display: flex; /*da se linkovi prikazuju jedan pored drugog*/
     list-style: none; /*uklanja oznake (bullets) sa liste*/
@@ -68,138 +68,135 @@ elemeneta sa klasom logo*/
 .nav-item {
     margin-left: 30px; /*razmak izmedju linkova za 30px*/
 }
-/*nav-item a se odnosi na linkove unutar navbara, "a" predstavlja anchor tag koji se koristi za kreiranje linkova*/
+
 .nav-item a {
     text-decoration: none; /*uklanja podvlacenje (underline ) sa linkova*/
     color: #e0e0e0; /*boja linkova*/
     font-weight: 600;/*debljina fonta*/
     text-transform: uppercase; /*pretvara tekst na linkovima u velika slova*/
     letter-spacing: 1px; /*razmak izmedju slova*/
-    transition: 0.3s ease; /*brzina promjena efekta kada se misem predje preko nekog od linkova koji se nalaze u navbaru*/
+    transition: 0.3s ease; 
 }
 
-/*.nav-item a se odnosi na linkove koji u navbaru, dok hover kaze pretrazivacu da primjeni sljedece efekte kada korisnik misem predje preko nekog od linkova u navbaru*/
 .nav-item a:hover {
     color: #00d4ff; /*boja linka*/
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);/*sjaj oko linka 10px je rasprostranjenost sjaja, 0,212,255 je boja , 0.8 je 80% providnosti sjaja*/
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);/*sjaj oko linka*/
 }
 
-/*klasa hamburger koja nam sluzi da uredu burger meni koji smo dodali pomocu js*/
+/*klasa hamburger koja nam sluzi da uredu burger meni*/
 .hamburger {
-    display: none; /*sakriva hamburger meni na vecim ekranima, jer ce se prikazivati samo na mobilnim uredjajima*/
-    flex-direction: column; /*da se linije burger menija prikazuju jedna ispod druge*/
-    cursor: pointer; /*mijenja oblik cursora u pointer kada predje preko hamburger menija, sto sugerira da se moze kliknuti*/
+    display: none; 
+    flex-direction: column; 
+    cursor: pointer; 
 }
-/*klasa bar za linije hamburger menija*/
+
 .bar {
-    width: 25px; /*fiksirana sirina linija*/
-    height: 2px; /*fiksirana visina linija*/
-    background-color: #00d4ff; /*boja linija hamburger menija*/
-    margin: 5px 0;/*razmak izmedju linija*/
-    transition: 0.4s; /*brzina efekta kada se hamburger meni klikne*/
-    box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); /*dodaje sjaj oko linija*/
+    width: 25px; 
+    height: 2px; 
+    background-color: #00d4ff; 
+    margin: 5px 0;
+    transition: 0.4s; 
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); 
 }
 
 /*css kod koji nam sluzi za mobilne uredjaje zbog hamburger menija*/
-/*ovo ce da radi samo kada je sirina ekrana 768px ili manja, sto je tipicna sirina za mobilne uredjaje*/
 @media screen and (max-width: 768px) {
     .hamburger {
         display: flex; 
     }
     .nav-menu {
-        position: absolute;/*postavlja hamburger meni tako da se preklapa preko ostatka stranice kada se otvori*/
+        position: absolute;
         top: 80px;
-        left: -100%; /*sakriva hamburger meni sa lijeve strane ekrana kada nije aktivan*/
-        flex-direction: column; /*da se linkovi prikazuju jedan ispod drugog*/
+        left: -100%; 
+        flex-direction: column; 
         background-color: #0a0a0a;
-        width: 100%; /*sirina menija kada se aktivira da zauzima cijelu sirinu ekrana*/
-        height: calc(100vh - 80px); /*calc znaci da ce visina menija biti jednaka visini ekrana gdje 100vh znaci 100% visine viewporta, a oduzima se 80px zbog visine navbara*/
-        transition: 0.4s ease-in-out; /*ease-in-out znaci da ce efekat poceti sporo, zatim ubrzati, a zatim opet usporiti kada se hamburger meni otvara ili zatvara*/
-        border-top: 1px solid #333; /*linija koja odvaja navbar od hamburger menija kada se otvori*/
+        width: 100%; 
+        height: calc(100vh - 80px); 
+        transition: 0.4s ease-in-out; 
+        border-top: 1px solid #333; 
     }
-    /*nav-menu je naziv klase dok .active je naziv klase koja nam sluzi da aktivira hamburger meni kada kliknemo na njega*/
     .nav-menu.active {
-        left: 0; /*pomjera hamburger meni na lijevu stranu ekrana da korisniku bude vidljiv*/
+        left: 0; 
     }
 
     .nav-item {
-        margin: 25px 0; /*razmak izmedju linkova*/
+        margin: 25px 0; 
     }
 
     .nav-item a {
-        font-size: 1.5rem; /*velicina fonta linkova*/
+        font-size: 1.5rem; 
     }
 }
+
 /* klasa za pozadinsku sliku*/
 .pozadina{
-    width: 100%; /*postavlja sliku punom sirinom*/
-    height: 100vh; /* zauzima 100% visine ekrana */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/glavnilogo.png'); /*implementacija slike*/
-    background-size: cover; /* slika ispunjava cijeli prostor bez razvlacenja */
-    background-position: center; /* slika je uvijek u sredini */
-    background-repeat: no-repeat; /*sprijecava da se slika ponovi (da i preko same sebe ili elemenata)*/
+    width: 100%; 
+    height: 100vh; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/glavnilogo.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     
     display: flex;
-    flex-direction: column; /*da se poremetimo raspored elemenata na stranici*/
+    flex-direction: column; 
 }
+
 .footer{
     color: white;
     text-align: center;
 }
 
-
 /* Klasa za pozadinsku sliku na unutrašnjim stranicama (npr. sadržaj) */
 .pozadina-mini {
-    width: 100%; /* puna širina */
-    height: 50vh; /* zauzima pola visine ekrana radi bolje vidljivosti sadržaja */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(28, 37, 56, 1)), url('../images/glavnilogo.png'); /* preliv boja u sliku */
-    background-size: cover; /* slika popunjava prostor bez razvlačenja */
-    background-position: center; /* centrirana slika */
+    width: 100%; 
+    height: 50vh; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(28, 37, 56, 1)), url('../images/glavnilogo.png'); 
+    background-size: cover; 
+    background-position: center; 
     display: flex;
-    flex-direction: column; /* vertikalno slaganje elemenata u headeru */
+    flex-direction: column; 
 }
 
 /* Stil za tekst u zaglavlju */
 .hero-text {
-    text-align: center; /* centriranje teksta */
-    margin-top: 50px; /* razmak od vrha */
+    text-align: center; 
+    margin-top: 50px; 
 }
 
 .hero-text h1 {
-    font-size: 3rem; /* velika veličina slova */
-    color: #00d4ff; /* neon plava boja */
-    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6); /* sjaj oko slova */
+    font-size: 3rem; 
+    color: #00d4ff; 
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6); 
 }
 
 /* Glavni kontejner za sadržaj */
 .sadrzaj-kontejner {
-    max-width: 1200px; /* maksimalna širina na velikim ekranima */
-    margin: -50px auto 50px; /* pomjera sadržaj prema gore da malo preklopi sliku (moderan izgled) */
-    padding: 20px; /* unutrašnji odmak */
+    max-width: 1200px; 
+    margin: -50px auto 50px; 
+    padding: 20px; 
 }
 
 /* Grid raspored kartica */
 .grid-sekcija {
-    display: grid; /* aktivira grid sistem */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* automatski raspoređuje broj kolona zavisno od širine ekrana */
-    gap: 30px; /* razmak između kartica */
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
 }
 
 /* Stil pojedinačne kartice */
 .kartica {
-    background: rgba(18, 24, 38, 0.8); /* tamna boja sa malo prozirnosti */
-    padding: 40px; /* prostor unutar kartice */
-    border-radius: 15px; /* zaobljeni ćoškovi */
-    border: 1px solid #333; /* suptilna ivica */
-    text-align: center; /* sav tekst centriran */
-    transition: 0.4s ease; /* glatkoća efekta promjene */
+    background: rgba(18, 24, 38, 0.8); 
+    padding: 40px; 
+    border-radius: 15px; 
+    border: 1px solid #333; 
+    text-align: center; 
+    transition: 0.4s ease; 
 }
 
-/* Efekat kada se mišem pređe preko kartice */
 .kartica:hover {
-    border-color: #00d4ff; /* ivica postaje neon plava */
-    transform: translateY(-10px); /* kartica se lagano podigne uvis */
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15); /* sjena ispod kartice */
+    border-color: #00d4ff; 
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15); 
 }
 
 /* Veličina ikone u kartici */
@@ -210,29 +207,28 @@ elemeneta sa klasom logo*/
 
 /* Dugmad u karticama */
 .dugme-link {
-    display: inline-block; /* omogućava marginu i padding na linku */
+    display: inline-block; 
     margin-top: 20px;
     padding: 10px 25px;
-    background: transparent; /* prozirna unutrašnjost */
-    border: 2px solid #00d4ff; /* neon plava ivica */
+    background: transparent; 
+    border: 2px solid #00d4ff; 
     color: #00d4ff;
-    text-decoration: none; /* uklanja podvlačenje teksta */
+    text-decoration: none; 
     border-radius: 5px;
     font-weight: bold;
     transition: 0.3s;
 }
 
-/* Efekat na dugme pri prelasku mišem */
 .dugme-link:hover {
-    background: #00d4ff; /* dugme se ispuni plavom bojom */
-    color: #1c2538; /* boja teksta postaje tamna */
+    background: #00d4ff; 
+    color: #1c2538; 
 }
 
 /* Stil za dodatni info tekst */
 .info-tekst {
     margin-top: 80px;
     text-align: center;
-    line-height: 1.8; /* razmak između redova radi lakšeg čitanja */
+    line-height: 1.8; 
 }
 
 /* Okvir za sekcije na stranici sadržaj */
@@ -241,7 +237,7 @@ elemeneta sa klasom logo*/
     padding: 30px;
     background: rgba(10, 15, 25, 0.4);
     border-radius: 10px;
-    border-left: 4px solid #00d4ff; /* neon plava linija sa strane */
+    border-left: 4px solid #00d4ff; 
 }
 
 /* Stil tabele (4 kolone i 5 redova) */
@@ -264,7 +260,7 @@ elemeneta sa klasom logo*/
 }
 
 .tptp-tabela tr:hover {
-    background-color: rgba(0, 212, 255, 0.1); /* sjaj reda na hover */
+    background-color: rgba(0, 212, 255, 0.1); 
 }
 
 /* Stil galerije slika (grid sa 3 kolone) */
@@ -285,7 +281,7 @@ elemeneta sa klasom logo*/
 
 .galerija-mreza img:hover {
     border-color: #00d4ff;
-    transform: scale(1.05); /* lagano povecanje */
+    transform: scale(1.05); 
 }
 
 /* Stil ugniježđene liste */
@@ -328,4 +324,89 @@ elemeneta sa klasom logo*/
     }
 }
 
+/* ==========================================================================
+   DIO 2: NOVI STILOVI ZA "ABOUT US" (MODIFIKOVANI NAZIVI)
+   ========================================================================== */
 
+/* Klasa za glavni omotac About Us stranice da ne utice na ostale */
+.about-stranica-body {
+    background-color: #0b0b0d;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Hero sekcija specifična za O nama */
+.about-hero-sekcija {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/glavnilogo.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.about-hero-sekcija h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #00f2ff;
+    text-transform: uppercase;
+}
+
+/* Kontejner za About sadržaj */
+.about-glavni-kontejner {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Mreža za tekst i statistike */
+.about-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Okvir za statistike */
+.about-stats-box {
+    display: flex;
+    justify-content: space-around;
+    background: #1a1a1d;
+    padding: 40px;
+    border-radius: 10px;
+    border-left: 5px solid #00f2ff;
+}
+
+.about-stat-item {
+    text-align: center;
+}
+
+.about-stat-item h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #00f2ff;
+    text-transform: uppercase;
+}
+
+.about-footer-stil {
+    text-align: center;
+    padding: 40px;
+    background: #050505;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responzivnost za About Us dio */
+@media (max-width: 768px) {
+    .about-grid-layout {
+        grid-template-columns: 1fr;
+    }
+    .about-stats-box {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
