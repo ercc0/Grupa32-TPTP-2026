@@ -1,39 +1,43 @@
-<!DOCTYPE html> <!--govori browseru da se radi o HTML5 standardu-->
-<html lang="bs"> <!--govori da nam je stranica na bosanskom jeziku-->
-<head> <!--zaglavlje stranice-->
-    <meta charset="UTF-8"> <!--omogucava koristenje nasih slova kao č,ć,š,đ,ž-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--da se moze otvoriti na mobilnom uredjaju-->
-    <link rel="stylesheet" href="css/tptpstil.css"> <!--povezujemo sa eksternim css fajlom-->
-    <link rel="icon" type="png" href="images/"> <!--slika koja se nalazi na tabu-->
-    <title>Welcome to EEE!</title> <!--tekst na tabu-->
+<!-- DOCTYPE - Govori browser-u da je ovo HTML5 dokument. Mora biti na početku fajla -->
+<!DOCTYPE html>
+<!-- root element cijelog HTML dokumenta. lang="bs" postavlja jezik na bosanski, što pomaže screen reader-ima i pretraživačima. -->
+<html lang="bs">
+<head>
+    <!-- sadrži meta informacije o dokumentu koje se ne prikazuju na stranici -->
+    <!-- omogućuje prikaz slova kao npr. č,ć,š,đ,ž,... -->
+    <meta charset="UTF-8">
+    <!-- kontroliše prikaz na mobilnim uređajima -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- spoj eksternog css fajla s ovim html-om -->
+    <link rel="stylesheet" href="css/tptpstil.css">
+    <!-- postavlja ikonu koja se prikazuje na browser tab-u -->
+    <link rel="icon" type="png" href="images/logo_p.png">
+    <!-- naslov stranice koji se prikazuje na tab-u -->
+    <title>Welcome to EEE!</title>
 </head>
-<body> <!--vidljivi dio stranice-->
-    <header class="pozadina"> <!--uvodni sadrzaj stranice koji je spojen sa klasom "pozadina"-->
-        <nav class="navbar"> <!--navigation bar povezan sa klasom "navbar"-->
-            <div class="navigacija"> <!--container u kojem smjestamo elemente navbara-->
-                <div class="logo"> <!--container za logo na lijevoj strani-->
+<!-- glavni sadržaj stranice koji se prikazuje korisniku -->
+<body class="pozadina">
+    <!-- zaglavlje stranice koje sadrži navigaciju -->
+    <header>
+        <!-- navigacioni element koji sadrži linkove ka drugim stranicama -->
+        <nav class="navbar">
+            <div class="navigacija">
+                <div class="logo">
                     <img src="images/logo1p.png" alt="Logo Firme" class="logo">
-                    <!--slika naseg loga koja ima alt text "Logo Firme" i povezan klasom "logo"-->
                 </div>
-
-                <ul class="nav-menu"> <!--unordered list za meni na navbaru-->
-                    <li class="nav-item"><a href="index.html">Home</a></li> <!--list item povezan sa klasom "nav-item" cijim klikom na element nas salje na link-->
+                <!-- unordered lista za nagivacione linkove -->
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html">Home</a></li>
                     <li class="nav-item"><a href="sadrzaj.html">Sadržaj</a></li>
                     <li class="nav-item"><a href="projekti.html">Projekti</a></li>
                     <li class="nav-item"><a href="FAQ.html">FAQ</a></li>
                     <li class="nav-item"><a href="about.html">About us</a></li>
                     <li class="nav-item"><a href="kontakt.html">Kontakt</a></li>
-                    <li class="nav-item"><a href="https://github.com/ercc0/Grupa32-TPTP-2026">Github Repo</a></li>
-                </ul> <!--kraj unordered liste-->
-
-                <!--container koji nam sluzi za hamburger meni, povezan sa klasom "hamburger"-->
-                <!--povezan je sa id "hamburger" koji nam sluzi kada se smanji rezolucija slike
-                i ne vidi se navigation bar kako treba da nam se stvori kao "hamburger" meni
-                za laksu preglednost-->
-                <!--Za hamburger mi je trebala pomoc AI, ovaj dio sa js-->
+                    <li class="nav-item"><a href="https://github.com/ercc0/Grupa32-TPTP-2026" target="_blank">Github Repo</a></li>
+                </ul>
+                <!-- hamburger meni za mobilne uređaje -->
                 <div class="hamburger" id="hamburger"> 
-                    <!--dodaje crtice na hamburger meni-->
-                    <!--span koristimo jer nema crtica u htmlu, pa pomocu span i cssa iz klase bar napravimo te crtice-->
+                    <!-- tri horizontalne linije koje formiraju hamburger ikonu -->
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -42,11 +46,88 @@
         </nav>
     </header>
 
-    <!--footer, text na kraju stranice-->
+    <!-- glavni sadržaj stranice -->
+    <main class="main">
+        <!-- lijevi sidebar sa filterima i dugmetom za temu -->
+        <aside class="sidebar-lijevo">
+            <!-- dugme za promjenu teme između dark i light mode-a -->
+            <button id="tema-toggle" class="btn theme-btn">☀ Svijetla / Tamna tema 🌙</button>
+            <h3>Kategorije</h3>
+            <!-- container za filter buttone -->
+            <div class="filter-kategorije">
+                <!-- filter buttone za prikaz različitih tipova projekata -->
+                <button class="btn active" data-filter="sve">Svi Projekti</button>
+                <!-- kategorije se filtriraju koristeći CSS display property i JavaScript -->
+                <button class="btn" data-filter="igre">Igre</button>
+                <button class="btn" data-filter="obrazovanje">Obrazovanje</button>
+                <button class="btn" data-filter="health">Health</button>
+                <button class="btn" data-filter="coming-soon">Coming soon</button>
+            </div>
+        </aside>
+
+        <!--glavna sekcija sa karticama projekata -->
+        <section class="main-sadrzaj">
+            <div class="kartice-grid">
+                <div class="kartica igre">
+                    <img src="images/chickenChaser.png" alt="chickenChaser">
+                    <h3>Chicken Chaser</h3>
+                    <p>Zabavna igra u kojoj igrač lovi i hvata kokoške!</p>
+                    <p>U saradnji sa OFFSET d.o.o</p>
+                    <a href="https://offset-corp.netlify.app/products" target="_blank" class="kartica-link">Saznaj više</a>
+                </div>
+                <div class="kartica obrazovanje">
+                    <img src="images/saobracaj1.png" alt="Saobracaj">
+                    <h3>Driving School Education - Simulator</h3>
+                    <p>Aplikacija za obrazovanje o saobraćaju, posebno korisno početnicima</p>
+                    <a href="https://driver.ba/testovi" target="_blank" class="kartica-link">Saznaj više</a>
+                </div>
+                <div class="kartica health">
+                    <img src="images/plus.png" alt="Health projekat">
+                    <h3>Health App</h3>
+                    <p>Aplikacija za praćenje zdravlja, kalorija i dnevnih aktivnosti.</p>
+                    <a href="https://www.who.int/" target="_blank" class="kartica-link">Saznaj više</a>
+                </div>
+                <div class="kartica coming-soon">
+                    <img src="images/soon.png" alt="Uskoro projekat">
+                    <h3>Coming soon</h3>
+                    <p>Veliki projekat uskoro! Pratite naše društvene mreže za više informacija!</p>
+                    <a href="https://www.instagram.com/eeefiirm/" target="_blank" class="kartica-link">Saznaj više</a>
+                </div>
+                <div class="kartica igre">
+                    <img src="images/sun.png" alt="Igra projekat">
+                    <h3>The Sun</h3>
+                    <p>Uzbudljivi apokaliptični naslov.</p>
+                    <p>U saradnji sa Fakovic Industries</p>
+                    <a href="https://en.wikipedia.org/wiki/Sun" target="_blank" class="kartica-link">Saznaj više</a>
+                </div>
+                <div class="kartica obrazovanje">
+                    <img src="images/kviz.png" alt="Obrazovanje projekat">
+                    <h3>Geography Quiz</h3>
+                    <p>Edukvativni kviz za sve starosne dobi, kviz je napravljen u vidu da se poboljša znanje iz geografije!</p>
+                    <a href="https://www.sporcle.com/games/category/geography" target="_blank" class="kartica-link">Saznaj više</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desni sidebar sa mapom i saradnicima -->
+        <aside class="sidebar-desno">
+            <h3 class="margina-top">Naša Lokacija</h3>
+            <!-- Container za Google Maps -->
+            <div class="mapa-kontejner">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d710.9757062394577!2d18.675298038022987!3d44.53762222002684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475ead228fafffff%3A0xb330cc1b40a195a2!2sCollege%20of%20Electrical%20Engineering%20Tuzla!5e0!3m2!1sen!2sba!4v1778004937532!5m2!1sen!2sba" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- Sekcija za saradnike-->
+            <h3 class="margina-top">Naši Saradnici</h3>
+            <ul class="saradnici-lista">
+                <li><a href="https://offset-corp.netlify.app/" target="_blank" class="link">OFFSET d.o.o.</a></li>
+                <li>Fakovic Industries</li>
+            </ul>
+        </aside>
+    </main>
+
     <footer class="footer">
         <b>Ermin Murić, Ermin Delić, Enis Srabović &copy; 2026. </b>
     </footer>
-    <!--povezujemo eksterni java skript-->
     <script src="js/tptpskripte.js"></script>
 </body>
 </html>
