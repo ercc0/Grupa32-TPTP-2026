@@ -383,7 +383,7 @@ body.light-mode .btn:hover, body.light-mode .btn.active, body.light-mode .theme-
 
 /* Animacija Fade In Up */
 @keyframes fadeInUp {
-    /* Šta znači: Kartice počinju nevidljive pomjeraju se za 30px prema gore, zatim postaju vidljive. */
+    /*Kartice počinju nevidljive pomjeraju se za 30px prema gore, zatim postaju vidljive. */
     from {
         opacity: 0; /* počinje nevidljiva */
         transform: translateY(30px); /* 30px prema dole*/
@@ -482,185 +482,917 @@ body.light-mode .btn:hover, body.light-mode .btn.active, body.light-mode .theme-
 
 
 /*=========================================================================================
-------------------SRABAAAAAAAAAAAAA--------------------------------------------------------
+------------------SRABA--------------------------------------------------------------------
 ===========================================================================================*/
 
-/* Okvir za sekcije na stranici sadržaj */
-.sekcija-okvir {
-    margin-bottom: 60px;
-    padding: 30px;
-    background: rgba(10, 15, 25, 0.4);
-    border-radius: 10px;
-    border-left: 4px solid #00d4ff; /* neon plava linija sa strane */
+/* ==========================================================================
+   Stilovi za sadrzaj.html (Zadani tamni mod)
+   ========================================================================== */
+
+/* Stilovi za glavno tijelo (body) stranice Sadržaj */
+.sadrzaj-body {
+    background: #0a0e17; /* Postavlja tamno plavu/crnu pozadinu cijele stranice */
+    color: white; /* Postavlja osnovnu boju teksta na bijelu */
+    margin: 0; /* Uklanja zadane vanjske margine pretraživača na ivicama ekrana */
+    padding: 0; /* Uklanja zadane unutrašnje razmake pretraživača */
 }
 
-/* Stil tabele (4 kolone i 5 redova) */
-.tptp-tabela {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: rgba(18, 24, 38, 0.8);
+/* Glavni kontejner koji drži sav sadržaj centriranim na ekranu */
+.sadrzaj-kontejner {
+    max-width: 1100px; /* Ograničava maksimalnu širinu sadržaja na 1100 piksela */
+    margin: 100px auto 0 auto; /* Pravi razmak od 100px na vrhu (zbog navbara), a 'auto' centrira kontejner lijevo i desno */
+    padding: 20px; /* Dodaje unutrašnji prostor od 20px oko sadržaja kako ne bi dodirivao ivice */
 }
 
-.tptp-tabela th, .tptp-tabela td {
-    padding: 15px;
-    border: 1px solid #333;
-    text-align: left;
+/* Hero sekcija na vrhu stranice (gdje se nalaze naslov i dugme) */
+.sadrzaj-hero {
+    display: flex; /* Aktivira Flexbox model za lakše poravnanje elemenata */
+    flex-direction: column; /* Ređa elemente (dugme, naslov, tekst) vertikalno jedan ispod drugog */
+    align-items: center; /* Centrira sve elemente horizontalno u sredinu */
+    justify-content: center; /* Centrira elemente vertikalno unutar hero sekcije */
+    text-align: center; /* Poravnava sam tekst (unutar naslova i pasusa) u sredinu */
+    margin-bottom: 40px; /* Pravi razmak od 40px ispod hero sekcije prema ostatku stranice */
 }
 
-.tptp-tabela th {
-    background-color: #00d4ff;
-    color: #1C2538;
+/* Sekcije sa modernim efektom zamućenog stakla (Glassmorphism) */
+.glass-sekcija {
+    background: rgba(255, 255, 255, 0.02); /* Postavlja jedva primjetnu prozirnu bijelu pozadinu (2% vidljivosti) */
+    border: 1px solid rgba(0, 212, 255, 0.15); /* Dodaje tanki prozirni okvir svijetloplave boje */
+    border-radius: 15px; /* Zaobljuje uglove sekcije za 15 piksela */
+    padding: 30px; /* Dodaje unutrašnji razmak od 30px sa svih strana unutar sekcije */
+    margin-bottom: 40px; /* Pravi razmak od 40px između dvije susjedne sekcije */
+    backdrop-filter: blur(10px); /* Zamucuje pozadinu iza sekcije za 10px stvarajući efekat stakla */
 }
 
-.tptp-tabela tr:hover {
-    background-color: rgba(0, 212, 255, 0.1); /* sjaj reda na hover */
+/* --- Tabela --- */
+
+/* Omogućava horizontalno skrolovanje tabele na mobilnim uređajima ako je preširoka */
+.tabela-scroll { 
+    overflow-x: auto; /* Ako tabela pređe širinu ekrana, pojavit će se horizontalni skrol bar */
 }
 
-/* Stil galerije slika (grid sa 3 kolone) */
-.galerija-mreza {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+/* Stilovi za glavnu tabelu */
+.moderna-tabela {
+    width: 100%; /* Tabela se širi preko cijele širine svog roditeljskog kontejnera */
+    border-collapse: collapse; /* Spaja duple linije okvira ćelija u jednu čistu liniju */
+    margin-top: 20px; /* Pravi razmak od 20px iznad tabele (odmiče je od naslova) */
 }
 
-.galerija-mreza img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    transition: 0.3s;
+/* Stilovi za ćelije u zaglavlju tabele (th) */
+.moderna-tabela th {
+    background: rgba(0, 212, 255, 0.1); /* Postavlja prozirnu svijetloplavu pozadinu za zaglavlje */
+    color: #00d4ff; /* Boji tekst u zaglavlju u neonsku svijetloplavu boju */
+    padding: 15px; /* Dodaje unutrašnji prostor od 15px unutar svake ćelije zaglavlja */
+    text-align: left; /* Poravnava tekst u zaglavlju na lijevu stranu */
 }
 
-.galerija-mreza img:hover {
-    border-color: #00d4ff;
-    transform: scale(1.05); /* lagano povecanje */
+/* Stilovi za obične ćelije sa podacima u tabeli (td) */
+.moderna-tabela td {
+    padding: 12px; /* Dodaje unutrašnji prostor od 12px unutar svake ćelije sa podacima */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Dodaje jedva vidljivu horizontalnu liniju ispod svakog reda */
 }
 
-/* Stil ugniježđene liste */
+/* --- Liste --- */
+
+/* Stilovi za glavnu strukturu liste tehnologija */
 .glavna-lista {
-    margin-left: 20px;
-    line-height: 2;
+    line-height: 1.8; /* Povećava razmak između redova teksta radi bolje čitljivosti */
+    margin-left: 20px; /* Pomijera kompletnu listu udesno za 20px */
 }
 
+/* Stilovi za podliste (liste unutar glavne liste) */
 .glavna-lista ul {
-    margin-left: 30px;
-    list-style-type: square;
-    color: #00d4ff;
+    margin-top: 10px; /* Pravi mali razmak od 10px iznad podliste */
+    margin-bottom: 10px; /* Pravi mali razmak od 10px ispod podliste */
+    color: #aaa; /* Mijenja boju teksta stavki u podlisti u svijetlosivu */
+    list-style-type: square; /* Postavlja kvadratne tačkice (bullet-pointse) ispred stavki podliste */
 }
 
-/* Image map slika */
-.mapa-slika {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #333;
-    margin-top: 15px;
+/* --- Galerija --- */
+
+/* Grid mreža u kojoj su raspoređene slike u galeriji */
+.galerija-grid {
+    display: grid; /* Aktivira CSS Grid sistem za raspoređivanje elemenata u redove i kolone */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Automatski stvara kolone minimalne širine 280px koje popunjavaju prostor */
+    gap: 15px; /* Pravi razmak od 15px između svih slika u mreži */
 }
 
-/* Stil za link "Skoči na vrh" */
-.vrati-se-gore {
-    text-align: center;
-    margin-top: 40px;
-    padding-bottom: 20px;
+/* Stilovi za samu sliku unutar pojedinačne stavke galerije */
+.galerija-item img {
+    width: 100%; /* Slika zauzima punu širinu svoje grid kolone */
+    height: 200px; /* Fiksira visinu svih slika na 200px kako bi bile ujednačene */
+    object-fit: cover; /* Isijeca i prilagođava sliku unutar 200px bez deformisanja (razvlačenja) */
+    border-radius: 10px; /* Zaobljuje uglove slika za 10 piksela */
+    transition: 0.3s; /* Postavlja trajanje animacije na 0.3 sekunde za glatke prelaze na hoveru */
 }
 
-.vrati-se-gore a {
-    color: #00d4ff;
-    text-decoration: none;
-    font-weight: bold;
+/* Efekat kada korisnik pređe mišem preko slike u galeriji */
+.galerija-item img:hover {
+    transform: scale(1.03); /* Lagano uvećava sliku za 3% dajući 3D efekat */
+    box-shadow: 0 0 15px #00d4ff; /* Dodaje sjaj oko slike u neonsko plavoj boji */
 }
 
-/* Responzivnost za galeriju na mobilnom */
-@media screen and (max-width: 768px) {
-    .galerija-mreza {
-        grid-template-columns: 1fr;
+/* --- Image Map (Interaktivna slika/logo) --- */
+
+/* Stilovi za interaktivni logotip sa klikabilnim zonama */
+.img-mapa {
+    max-width: 100%; /* Sprječava sliku da bude šira od ekrana (čini je responzivnom) */
+    border-radius: 15px; /* Zaobljuje uglove interaktivne slike za 15 piksela */
+    border: 1px solid #333; /* Dodaje tanki tamnosivi okvir oko slike */
+}
+
+/* --- Navigacija sa oznakama (Dugme "Skoči na vrh") --- */
+
+/* Kontejner u kojem se nalazi dugme za povratak na vrh stranice */
+.jump-top {
+    text-align: center; /* Pozicionira dugme tačno na sredinu ekrana */
+    margin-top: 50px; /* Pravi razmak od 50px iznad dugmeta, odmičući ga od zadnje sekcije */
+}
+
+/* Stilovi za samo link/dugme za skok na vrh */
+.btn-top {
+    color: #00d4ff; /* Postavlja boju teksta i strelice u neonsko plavu */
+    text-decoration: none; /* Uklanja zadano podvlačenje teksta koje linkovi imaju */
+    font-weight: bold; /* Čini tekst dugmeta podebljanim */
+    border: 1px solid #00d4ff; /* Dodaje neonsko plavi okvir oko teksta dugmeta */
+    padding: 10px 20px; /* Dodaje unutrašnji prostor (10px gore/dolje, 20px lijevo/desno) unutar dugmeta */
+    border-radius: 5px; /* Blago zaobljuje ivice dugmeta za 5 piksela */
+}
+
+
+/* ==========================================================================
+   Stilovi za dugme u tamnom modu (Light/Dark Mode Toggle)
+   ========================================================================== */
+
+/* Osnovni izgled dugmeta za prebacivanje tema u podrazumijevanom stanju */
+.theme-btn {
+    background: rgba(255, 255, 255, 0.05); /* Postavlja tamnu, blago prozirnu pozadinu dugmeta */
+    color: #00d4ff; /* Postavlja neonsko plavu boju za tekst i ikonice u dugmetu */
+    border: 1px solid #00d4ff; /* Dodaje neonsko plavi okvir oko dugmeta */
+    padding: 10px 20px; /* Dodaje unutrašnji prostor (10px visina, 20px širina) */
+    font-size: 0.95rem; /* Postavlja veličinu fonta malo ispod standardne veličine */
+    font-weight: bold; /* Podebljava tekst unutar dugmeta */
+    border-radius: 25px; /* Potpuno zaobljuje ivice dugmeta pretvarajući ga u pilulu */
+    cursor: pointer; /* Mijenja kursor miša u "ruku" (pointer) kada pređe preko dugmeta */
+    transition: all 0.3s ease; /* Omogućava da se sve promjene (boja, sjenka, pomjeranje) animiraju glatko tokom 0.3s */
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2); /* Dodaje blagi neonsko plavi sjaj oko dugmeta */
+    margin-bottom: 25px; /* Pravi razmak od 25px ispod dugmeta */
+}
+
+/* Izgled dugmeta za temu kada korisnik pređe mišem preko njega */
+.theme-btn:hover {
+    background: #00d4ff; /* Mijenja pozadinu dugmeta u punu neonsko plavu boju */
+    color: #0a0e17; /* Mijenja boju teksta u tamnu pozadinsku boju radi kontrasta */
+    box-shadow: 0 0 20px #00d4ff; /* Pojačava neonsko plavi sjaj oko dugmeta na hoveru */
+    transform: translateY(-2px); /* Lagano pomijera dugme nagore za 2 piksela (efekat lebdenja) */
+}
+
+/* ==========================================================================
+   Stilovi za Light Mode (Svijetla tema)
+   ========================================================================== */
+
+/* Kada tijelo stranice ima klasu 'light-mode', mijenjaju se pozadina i osnovni tekst */
+body.light-mode,
+body.sadrzaj-body.light-mode {
+    background: #f4f6f9; /* Mijenja pozadinu cijelog ekrana u ugodnu svijetlo-sivu boju */
+    color: #1a1a1a; /* Mijenja osnovnu boju teksta u tamnosivu/crnu */
+}
+
+/* Osigurava da svi naslovi i važni tekstovi unutar staklenih sekcija potamne */
+body.light-mode .glass-sekcija h1,
+body.light-mode .glass-sekcija h2,
+body.light-mode .glass-sekcija h3,
+body.light-mode .glass-sekcija strong {
+    color: #1a1a1a; /* Prisilno mijenja boju naslova u tamnosivu da ne bi ostali bijeli */
+}
+
+/* Prilagođavanje staklenih sekcija za svijetlu pozadinu */
+body.light-mode .glass-sekcija {
+    background: rgba(255, 255, 255, 0.85); /* Pretvara tamno prozirno staklo u bijelo prozirno staklo (85% vidljivosti) */
+    border: 1px solid rgba(0, 150, 255, 0.2); /* Mijenja okvir u blagu plavu nijansu prilagođenu svijetloj temi */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Dodaje finu, mekanu tamnu sjenku ispod sekcije radi dubine */
+    color: #1a1a1a; /* Osigurava da je sav obični tekst unutar sekcije taman */
+}
+
+/* Podešavanje boja stavki u listama tehnologija radi bolje čitljivosti */
+body.light-mode .glavna-lista li,
+body.light-mode .glavna-lista ul li {
+    color: #333333; /* Postavlja tamno sivu boju teksta za sve nivoe listi */
+}
+
+/* Prilagođavanje zaglavlja tabele u svijetlom modu */
+body.light-mode .moderna-tabela th {
+    background: rgba(0, 150, 255, 0.15); /* Postavlja nešto zasićeniju prozirnu plavu pozadinu iza naslova kolona */
+    color: #006688; /* Mijenja neonsku boju teksta u tamniju i čitljiviju plavu nijansu */
+}
+
+/* Prilagođavanje ćelija sa podacima u tabeli u svijetlom modu */
+body.light-mode .moderna-tabela td {
+    color: #1a1a1a; /* Postavlja tekst u tabeli na tamnosivu boju */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Mijenja bijelu liniju u tamnu prozirnu liniju između redova */
+}
+
+/* Prilagođavanje teksta u podnožju (footeru) stranice */
+body.light-mode .footer,
+body.light-mode .footer b {
+    color: #333333; /* Mijenja imena autora i godinu u tamnu boju kako bi se vidjeli na svijetloj pozadini */
+}
+
+
+/* ==========================================================================
+   Stilovi za dugme kada je aktivna svijetla tema
+   ========================================================================== */
+
+/* Prilagođavanje boja samog dugmeta za prebacivanje teme u svijetlom modu */
+body.light-mode .theme-btn {
+    background: rgba(0, 102, 136, 0.05); /* Postavlja vrlo blagu, prozirnu plavkastu pozadinu dugmeta */
+    color: #006688; /* Mijenja tekst u tamniju plavu boju koja ima dobar kontrast na svijetloj pozadini */
+    border: 1px solid #006688; /* Mijenja okvir dugmeta u tamnoplavu boju */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Zamjenjuje neonski sjaj klasičnom blagom sjenkom objekta */
+}
+
+/* Izgled dugmeta za temu na hoveru kada je aktivna svijetla tema */
+body.light-mode .theme-btn:hover {
+    background: #006688; /* Na hoveru, pozadina dugmeta postaje puna tamnoplava boja */
+    color: #ffffff; /* Tekst unutar dugmeta postaje čisto bijel radi savršenog kontrasta */
+    box-shadow: 0 4px 12px rgba(0, 102, 136, 0.3); /* Dodaje plavkastu sjenku koja naglašava pritisak/hover dugmeta */
+}
+
+
+/* ==========================================================================
+   Popravak za navigaciju (Navbar) u Light Modu
+   ========================================================================== */
+
+/* Pozadina glavnog navigacionog bara postaje svijetla */
+body.light-mode .navbar {
+    background: #ffffff; /* Mijenja crnu pozadinu navbara u čisto bijelu */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Dodaje blagu sjenku ispod navbara koja ga odvaja od ostatka stranice */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Dodaje tanku, jedva vidljivu liniju na samom dnu navbara */
+}
+
+/* Mijenjanje boje linkova unutar navigacionog menija u svijetlom modu */
+body.light-mode .nav-menu .nav-item a {
+    color: #1a1a1a; /* Mijenja bijela slova linkova u tamnosivu boju kako bi bili čitljivi */
+    font-weight: 500; /* Blago podebljava font linkova (srednja debljina) radi boljeg izgleda */
+}
+
+/* Efekat kada korisnik pređe mišem preko linkova u navigaciji unutar svijetle teme */
+body.light-mode .nav-menu .nav-item a:hover {
+    color: #006688; /* Kada miš pređe preko linka, slova se boje u finu tamnoplavu boju */
+}
+
+/* ==========================================================================
+   GLAVNI STILOVI I INTERFEJS STRANICE PROJEKTI
+   ========================================================================== */
+
+/* Specifičan stil za pozadinu cijele stranice projekti.html */
+.projekti-body {
+    background-color: #0b0f1a; /* Tamno plava, skoro crna gejmerska pozadina */
+}
+
+/* Stil za Hero sekciju (gornji dio stranice sa glavnim naslovom) */
+.projekti-hero {
+    padding: 100px 20px 40px; /* Veliki gornji padding odmiče tekst ispod navigacije (navbara) */
+    text-align: center; /* Centrira naslov i podnaslov na sredinu ekrana */
+}
+
+/* Glavni kontejner koji dijeli stranicu na dva asimetrična dijela: lijevi sidebar i desnu mrežu projekata */
+.projekti-layout-wrapper {
+    display: grid; /* Aktivira CSS Grid sistem rasporeda elemenata */
+    grid-template-columns: 350px 1fr; /* Prva kolona (sidebar) je fiksno 350px, a druga kolona (grid) uzima sav preostali prostor (1fr) */
+    gap: 30px; /* Razmak između sidebara i kartica sa projektima iznosi 30px */
+    max-width: 1400px; /* Maksimalna širina cijelog sadržaja na širokim monitorima */
+    margin: 0 auto; /* Centrira cijeli wrapper na sredinu ekrana */
+    padding: 20px; /* Unutrašnje rastojanje od ivica ekrana */
+}
+
+/* ==========================================================================
+   STILIZACIJA LIJEVOG SIDEBARA (KONTROLNE TABLE)
+   ========================================================================== */
+
+/* Stil za lijevu kontrolnu tablu koja sadrži dugme za temu, filtere i statistiku */
+.kontrolna-tabla {
+    background: rgba(255, 255, 255, 0.03); /* Veoma prozirna bijela pozadina koja stvara stakleni efekt */
+    backdrop-filter: blur(10px); /* Zamagljuje pozadinu iza sidebara (Glassmorphism efekat) */
+    border: 1px solid rgba(0, 212, 255, 0.2); /* Tanki, svjetlucavi neonsko-plavi okvir */
+    padding: 30px; /* Prostor unutar sidebara između okvira i elemenata */
+    border-radius: 20px; /* Jako zaobljeni uglovi kontrolne table */
+    position: sticky; /* Sidebar se fiksira prilikom skrolovanja stranice */
+    top: 100px; /* Sidebar će se zaustaviti na 100px od vrha ekrana i ostati tu dok skroluješ */
+}
+
+/* Stil za glavno akciono dugme u kontrolnoj tabli (dugme za promjenu teme) */
+.btn-akcija {
+    width: 100%; /* Dugme se rasteže preko čitave širine sidebara */
+    padding: 12px; /* Unutrašnja visina dugmeta */
+    background: var(--neon-plava); /* Pozadina koristi CSS varijablu za neonsko plavu boju */
+    border: none; /* Uklanja se standardni, ružni okvir browsera */
+    border-radius: 8px; /* Blago zaobljavanje ivica dugmeta */
+    font-weight: bold; /* Podebljana slova na dugmetu radi bolje uočljivosti */
+    cursor: pointer; /* Kada miš pređe preko dugmeta, kursor postaje "ruka" (pointer) */
+    margin-bottom: 25px; /* Razmak ispod ovog dugmeta kako bi se odvojilo od filtera */
+}
+
+/* Stil za pojedinačnu dugmad filtera (Svi, Gaming, Web) */
+.f-btn {
+    display: block; /* Svako filter dugme se postavlja u novi red (jedno ispod drugog) */
+    width: 100%; /* Dugmad se rastežu cijelom širinom sidebara */
+    text-align: left; /* Poravnava tekst unutar dugmeta na lijevu stranu */
+    background: transparent; /* Providna pozadina dugmeta */
+    border: 1px solid rgba(255,255,255,0.1); /* Jedva vidljiv sivi okvir oko dugmeta */
+    color: white; /* Bijela boja slova */
+    padding: 10px; /* Unutrašnji prostor dugmeta */
+    margin-bottom: 8px; /* Razmak između dva susjedna filter dugmeta */
+    border-radius: 5px; /* Blago zaobljeni uglovi filter dugmadi */
+    cursor: pointer; /* Pretvara kursor u ruku na hover-u */
+}
+
+/* Stil koji se primjenjuje isključivo na ono filter dugme koje je trenutno aktivno/kliknuto */
+.f-btn.active {
+    border-color: var(--neon-plava); /* Okvir aktivnog dugmeta postaje neonsko plav */
+    color: var(--neon-plava); /* Slova aktivnog dugmeta postaju neonsko plava */
+}
+
+/* ==========================================================================
+   STILIZACIJA DESNE MREŽE (GRID-A) I KARTICA PROJEKATA
+   ========================================================================== */
+
+/* Stil za kontejner koji drži sve kartice sa projektima */
+.novi-projekti-grid {
+    display: grid; /* Aktivira Grid sistem za raspoređivanje samih kartica */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Automatski stvara onoliko kolona koliko može stati, s tim da nijedna kartica ne može biti uža od 300px */
+    gap: 25px; /* Razmak između pojedinačnih kartica (i vertikalno i horizontalno) iznosi 25px */
+}
+
+/* Stil za pojedinačnu karticu projekta */
+.p-kartica {
+    background: #161b22; /* Tamno siva pozadina kartice, usklađena sa GitHub tamnom temom */
+    border-radius: 15px; /* Zaobljeni uglovi same kartice */
+    overflow: hidden; /* Osigurava da slika unutar kartice ne "pobjegne" van zaobljenih uglova */
+    border: 1px solid rgba(255,255,255,0.05); /* Skoro nevidljiv fini okvir oko kartice */
+    transition: transform 0.3s ease; /* Omogućava glatku animaciju kada se kartica podiže na hover */
+}
+
+/* Efekat koji se dešava kada korisnik pređe mišem preko kartice projekta */
+.p-kartica:hover {
+    transform: translateY(-5px); /* Glatko podiže karticu prema gore za 5 piksela */
+}
+
+/* Kontejner u kojem se nalazi slika projekta (gornji dio kartice) */
+.p-img-container {
+    position: relative; /* Postavlja relativno pozicioniranje kako bi se oznaka (.p-tag) mogla pozicionirati unutar njega */
+    height: 180px; /* Fiksna visina prostora za sliku na svim karticama */
+}
+
+/* Stil za samu sliku unutar kontejnera kartice */
+.p-img-container img {
+    width: 100%; /* Slika zauzima kompletnu širinu kartice */
+    height: 100%; /* Slika popunjava kompletnu visinu kontejnera (180px) */
+    object-fit: cover; /* Proporcionalno reže i prilagođava sliku tako da ne bude razvučena ili deformisana */
+}
+
+/* Stil za malu tekstualnu oznaku (npr. Gaming, Web App) koja stoji preko slike */
+.p-tag {
+    position: absolute; /* Omogućava slobodno postavljanje preko slike bez pomjeranja ostalih elemenata */
+    top: 10px; /* Odmiče oznaku 10px od gornje ivice slike */
+    left: 10px; /* Odmiče oznaku 10px od lijeve ivice slike */
+    background: var(--neon-plava); /* Pozadina oznake je jarka neonsko plava */
+    color: black; /* Crna boja slova radi maksimalnog i oštrog kontrasta na plavoj pozadini */
+    padding: 4px 10px; /* Unutrašnji prostor unutar oznake */
+    font-size: 0.7rem; /* Sitniji font pogodan za tagove/oznake */
+    font-weight: bold; /* Podebljana slova oznake */
+    border-radius: 4px; /* Blago zaobljene ivice oznake */
+}
+
+/* Kontejner za tekstualni dio unutar kartice (ispod slike: naslov, opis, link) */
+.p-info {
+    padding: 20px; /* Odmiče tekst od ivica kartice i od gornje slike */
+}
+
+/* Stil za linkove na dnu kartice (npr. GitHub ->, Posjeti sajt ->) */
+.p-link {
+    color: var(--neon-plava); /* Linkovi svijetle u neonsko plavoj boji */
+    text-decoration: none; /* Uklanja standardnu podvučenu crtu sa linka */
+    font-weight: bold; /* Podebljan tekst linka */
+    font-size: 0.9rem; /* Blago smanjena veličina teksta */
+}
+
+/* ==========================================================================
+   RESPONZIVNI DIZAJN (PRILAGOĐAVANJE EKRAKIMA TELEFONA I TABLETA)
+   ========================================================================== */
+
+/* Pravilo koje se aktivira kada se stranica gleda na ekranu užem od 900 piksela (npr. tableti i telefoni) */
+@media (max-width: 900px) {
+    .projekti-layout-wrapper {
+        grid-template-columns: 1fr; /* Sidebar i mreža sa karticama gube asimetriju i slažu se jedno ispod drugog (u jednu kolonu) */
     }
+}
+
+/* ==========================================================================
+   DOPUNSKI STILOVI ZA LIGHT MODE (SVIJETLA TEMA)
+   ========================================================================== */
+
+/* Kada JavaScript doda klasu .light-mode na body, pozadina ekrana prelazi u svijetlo sivu, a osnovna slova u tamna */
+body.light-mode.projekti-body,
+body.light-mode {
+    background-color: #f4f6f9 !important; /* Prisilno mijenja tamnu pozadinu u svijetlu */
+    color: #1a1a1a !important; /* Prisilno mijenja bijela slova u tamno siva/crna radi čitljivosti */
+}
+
+/* Naslov i opis u Hero sekciji postaju tamni radi kontrasta na svijetloj pozadini */
+body.light-mode .projekti-hero h1,
+body.light-mode .projekti-hero p {
+    color: #1a1a1a;
+}
+
+/* Prilagođavanje kontrolne table (Sidebara) za svijetlu temu */
+body.light-mode .kontrolna-tabla {
+    background: rgba(255, 255, 255, 0.85); /* Tamna prozirna pozadina postaje mliječno-bijela prozirna pozadina */
+    border: 1px solid rgba(0, 150, 255, 0.2); /* Dobija nježniji plavi okvir umjesto jakog neonskog */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Dodaje se blaga sjenka koja vizuelno odvaja sidebar od pozadine */
+}
+
+/* Naslovi i prateći tekst unutar kontrolne table u svijetloj temi postaju tamni */
+body.light-mode .kontrolna-tabla h3,
+body.light-mode .kontrolna-tabla h4,
+body.light-mode .stat-box p {
+    color: #1a1a1a;
+}
+
+/* Dugmad za filtere dobijaju jasniji tamni okvir i tamno siva slova u svijetlom modu */
+body.light-mode .f-btn {
+    border: 1px solid rgba(0, 0, 0, 0.15); /* Okvir postaje taman i jasno uočljiv na bijeloj pozadini */
+    color: #333333; /* Boja slova prelazi iz bijele u tamno sivu */
+}
+
+/* Stil za filter dugme koje je trenutno aktivno unutar svijetle teme */
+body.light-mode .f-btn.active {
+    border-color: #006688; /* Aktivni okvir dobija umjerenu, čitljivu plavu boju umjesto previše svijetle neonske */
+    color: #006688; /* Tekst aktivnog filtera postaje tamnoplav */
+    background: rgba(0, 102, 136, 0.05); /* Pozadina aktivnog dugmeta se blago boji u prozirnu plavu */
+}
+
+/* Brojač završenih projekata unutar statistike u svijetlom modu prelazi u tamnu boju */
+body.light-mode .stat-box .counter {
+    color: #1a1a1a;
+}
+
+/* Prilagođavanje kartica projekata za svijetlu temu */
+body.light-mode .p-kartica {
+    background: #ffffff; /* Pozadina kartica se mijenja iz tamne (#161b22) u čistu, elegantnu bijelu boju */
+    border: 1px solid rgba(0, 0, 0, 0.08); /* Dobija tanki, fini sivi okvir umjesto svijetlog */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Dodaje se mekana sjenka ispod kartice za moderan "card" izgled */
+}
+
+/* Naslov i opis unutar tekstualnog dijela kartice u svijetlom modu postaju tamni */
+body.light-mode .p-info h3,
+body.light-mode .p-info p {
+    color: #1a1a1a;
+}
+
+/* Linkovi na karticama (GitHub i Posjeti sajt) dobijaju tamniju nijansu plave radi lakšeg čitanja na bijeloj podlozi */
+body.light-mode .p-link {
+    color: #006688;
+}
+
+/* Prilagođavanje glavnog Navigacionog Bara (Navbara) na vrhu ekrana za svijetlu temu */
+body.light-mode .navbar {
+    background: #ffffff !important; /* Navbar iz prozirno-tamne prelazi u čisto bijelu neprozirnu pozadinu */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Dodaje se sjenka na dnu navbara koja ga odvaja od hero sekcije */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Linija na dnu navbara radi preciznijeg odvajanja */
+}
+
+/* Linkovi u glavnom meniju navbara postaju tamni u svijetlom modu */
+body.light-mode .nav-menu .nav-item a {
+    color: #1a1a1a !important;
+}
+
+/* Efekat kada miš pređe preko linkova u navbaru u svijetlom modu */
+body.light-mode .nav-menu .nav-item a:hover {
+    color: #006688 !important; /* Link prilikom hover-a glatko prelazi u tamnoplavu boju */
+}
+
+/* Tekst u podnožju stranice (Footer-u) postaje tamnosiv i uočljiv u svijetlom modu */
+body.light-mode .footer {
+    color: #333333 !important;
 }
 
 /*=========================================================================================
-------------------ERMINNNNNNNNNNNNNNNNNNNNNN-----------------------------------------------
+------------------ERMIN--------------------------------------------------------------------
 ===========================================================================================*/
 
-.about-stranica-body {
-    background-color: #0b0b0d;
-    font-family: 'Roboto', sans-serif;
-}
+/* ==========================================================================
+   3. STILOVI ZA KONTAKT STRANICU (kontakt.html)
+   Šta znači: Ova sekcija sadrži sve CSS za kontakt stranicu - forma i sidebar sa informacijama.
+   Za šta se koristi: Kontakt forma, validacija, sidebar sa statistikom i drštvenim mrežama.
+   Zašto: Organizuje sve CSS specificne za kontakt stranicu.
+   ========================================================================== */
 
-/* Hero sekcija specifična za O nama */
-.about-hero-sekcija {
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/glavnilogo.png');
-    background-size: cover;
-    background-position: center;
-}
-
-.about-hero-sekcija h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #00f2ff;
-    text-transform: uppercase;
-}
-
-/* Kontejner za About sadržaj */
-.about-glavni-kontejner {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 0 20px;
-}
-
-/* Mreža za tekst i statistike */
-.about-grid-layout {
+/* Kontakt Glavni Okvir - 2-kolumnski layout za formu i sidebar */
+.kontakt-glavni-okvir {
+    /* Šta znači: 2-kolumnski layout - forma lijevo (2fr), sidebar desno (1fr).
+       Za šta se koristi: Forma zauzima 2x više prostora, sidebar 1x.
+       Zašto: Forma je glavna - sidebar je sekundarni. */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
+    grid-template-columns: 2fr 1fr; /* Forma 2x veća od sidebara */
+    gap: 40px; /* Razmak između kolona */
+    max-width: 1200px; /* Maksimalna širina */
+    margin: 50px auto; /* Vertikalni i horizontalni centar */
+    padding: 20px;
+    align-items: stretch; /* Obje kolone iste visine */
+    flex: 1; /* Zauzima dostupno mjesto */
 }
 
-/* Okvir za statistike */
-.about-stats-box {
+/* Kontakt Sekcija Forme - Lijeva kolona sa formom */
+.kontakt-sekcija-forme {
+    /* Šta znači: Kontejner sa kontakt formom.
+       Za šta se koristi: Sadrži sve input polja, dugmad, validacijske greške.
+       Zašto: animation: ulazakForme - forma se pojavljuje sa animacijom. */
+    animation: ulazakForme 0.8s ease-out; /* Animacija pri učitavanju */
     display: flex;
-    justify-content: space-around;
-    background: #1a1a1d;
-    padding: 40px;
-    border-radius: 10px;
-    border-left: 5px solid #00f2ff;
+    flex-direction: column; /* Vertikalni raspored */
 }
 
-.about-stat-item {
-    text-align: center;
+/* Kontakt Box - Zajednički stil za sve boxove na kontakt stranici */
+.kontakt-box {
+    /* Šta znači: Mrežasto staklo box sa padding-om.
+       Za šta se koristi: Forma, sidebar, info boxovi - svi su kontakt-box klase.
+       Zašto: Dosljedan stil - sve sekcije izgleda isto. */
+    border-radius: 15px; /* Veći zaobljeni uglovi */
+    padding: 35px; /* Veći unutarnji razmak */
 }
 
-.about-stat-item h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    color: #00f2ff;
-    text-transform: uppercase;
+/* Kontakt Naslov - Glavni naslov forme */
+.kontakt-naslov {
+    /* Šta znači: "Kontakt Forma" naslov.
+       Za šta se koristi: Prikazuje naslov forme.
+       Zašto: Veliki font - 2.2rem - vidljiv na stranici. */
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: var(--tekst-svijetli);
 }
 
-.about-footer-stil {
-    text-align: center;
-    padding: 40px;
-    background: #050505;
-    margin-top: 50px;
+/* Kontakt Podnaslov - Opis forme */
+.kontakt-podnaslov {
+    /* Šta znači: "Pošaljite nam vaše zahtjeve..." tekst.
+       Za šta se koristi: Objašnjava namjenu forme.
+       Zašto: opacity: 0.8 - malo bljeđe jer je sekundarni tekst. */
+    color: var(--tekst-svijetli);
+    margin-bottom: 30px;
+    opacity: 0.8; /* Bljeđi tekst */
+}
+
+/* Info Naslov - Naslovi u sidebar info boxovima */
+.info-naslov {
+    /* Šta znači: Naslovi u sidebarima ("Statistika stranice", "Društvene mreže", "Kontakt podaci").
+       Za šta se koristi: Naziva svaki info box.
+       Zašto: Neon i uppercase - istaknuto. */
+    color: var(--neon-plava); /* Neon plava */
+    text-transform: uppercase; /* Kapitalne slove */
+    letter-spacing: 2px; /* Razmak između slova */
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Kontakt Red - Red sa dva input polja (Ime i Prezime) */
+.kontakt-red {
+    /* Šta znači: Flex red za dva polja pored jedan drugog.
+       Za šta se koristi: Ime i Prezime su u istom redu.
+       Zašto: Čuva prostor - umjesto da budu jedan ispod drugog. */
+    display: flex; /* Horizontalni raspored */
+    gap: 20px; /* Razmak između polja */
+}
+
+/* Kontakt Grupa - Grupa sa labela + input + greška */
+.kontakt-grupa {
+    /* Šta znači: Kontejner za labela, input, i span za greške.
+       Za šta se koristi: Svaki input ima labelu i mogućnost prikaza greške.
+       Zašto: flex: 1 - polja se dijele na pola kada je red. */
+    margin-bottom: 20px;
+    flex: 1; /* Zauzima dostupno mjesto u redu */
+    display: flex;
+    flex-direction: column; /* Labela iznad inputa */
+}
+
+/* Kontakt Labela - Tekst koji opisuje polje */
+.kontakt-labela {
+    /* Šta znači: Labela koja pokazuje šta ide u input ("Ime", "Email", itd.).
+       Za šta se koristi: HTML <label> element.
+       Zašto: font-weight: 500 - malo boldan da bude vidljiv. */
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--tekst-svijetli);
+    font-weight: 500; /* Boldan */
+}
+
+/* Kontakt Input, Select, Textarea - Sva input polja */
+.kontakt-input, .kontakt-select, .kontakt-textarea {
+    /* Šta znači: Stilovi za sve input polje u formi.
+       Za šta se koristi: Tekstualni inputi, select dropdown, textarea.
+       Zašto: Konzistentan stil - sva polja izgleda isto. */
+    background: var(--input-bg); /* Polu-providna pozadina */
+    border: 1px solid var(--input-border); /* Granica */
+    padding: 12px 15px; /* Unutarnji razmak */
+    color: var(--tekst-svijetli); /* Svjetli tekst */
+    border-radius: 8px; /* Zaobljeni uglovi */
+    transition: var(--tranzicija); /* Glatka animacija */
+    font-size: 1rem;
+}
+
+/* Kontakt Input Focus - Animacija pri fokusa */
+.kontakt-input:focus, .kontakt-select:focus, .kontakt-textarea:focus {
+    /* Šta znači: Kada korisnik klikne na input, fokusa se na polju.
+       Za šta se koristi: Neon plava granica i sjena pokazuje aktivno polje.
+       Zašto: Poboljšava UX - korisnik vidi koji input je trenutno aktivan. */
+    outline: none; /* Uklanja default browser outline */
+    border-color: var(--neon-plava); /* Neon granica */
+    box-shadow: 0 0 8px var(--neon-sja); /* Neon sjena */
+}
+
+/* Kontakt Greška Border - Crvena granica kada validacija fail-uje */
+.kontakt-greska-border {
+    /* Šta znači: Crvena granica oko input polja kada je greška.
+       Za šta se koristi: JavaScript dodaje ovu klasu kada validacija fail-uje.
+       Zašto: Korisnik vidja koja polja su pogrefna. */
+    border-color: var(--greska-boja) !important; /* Crvena boja */
+}
+
+/* Kontakt Validno Border - Zelena granica kada je polje ispravno uneseno (real-time validacija) */
+.kontakt-validno-border {
+    /* Šta znači: Zelena granica koja se pojavljuje dok korisnik tipka i polje postane validno.
+       Za šta se koristi: Real-time feedback - korisnik odmah vidi da je polje ispravno.
+       Zašto: Pozitivni feedback poboljšava UX - korisnik ne čeka submit da sazna je li OK. */
+    border-color: var(--uspjeh-boja) !important; /* Zelena boja */
+    box-shadow: 0 0 6px rgba(46, 204, 113, 0.3) !important; /* Blag zeleni sjaj */
+}
+
+/* Animirani Loader - Spinner rotacija keyframes */
+@keyframes kontakt-spinner-rotacija {
+    /* Spinner se rotira od 0 do 360 stepeni kontinuirano.
+       Kombinuje se sa border-top trikom da stvori kružni loading indikator. */
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Btn Spinner - Kružni spinner element unutar dugmeta */
+.btn-spinner {
+    /* Šta znači: Mali kružić koji se vrti unutar submit dugmeta dok se forma "šalje".
+       Za šta se koristi: JavaScript ubacuje ovaj element u dugme tokom loading stanja.
+       Zašto: Daje korisniku vizuelni feedback da se nešto dešava. */
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.3); /* Tamni krug - nevidljivi dio */
+    border-top-color: #000; /* Tamni vrh koji se vrti i stvori kružni efekat */
+    border-radius: 50%; /* Krug */
+    animation: kontakt-spinner-rotacija 0.7s linear infinite; /* Kontinuirano vrtenje */
+    vertical-align: middle; /* Poravnat sa tekstom */
+    margin-right: 6px; /* Razmak do teksta "Slanje..." */
+}
+
+/* Btn Posalji Loading - Stanje dugmeta tokom slanja */
+.btn-posalji-loading {
+    /* Šta znači: Izmijenjeni izgled submit dugmeta tokom animacije slanja.
+       Za šta se koristi: JavaScript dodaje ovu klasu, uklanja je nakon 1.8s.
+       Zašto: opacity smanjuje brightness - vizuelno "deaktivirano" stanje. */
+    opacity: 0.85; /* Malo bljeđe da djeluje kao disabled */
+    cursor: not-allowed; /* Zabranjen kursor */
+    transform: none !important; /* Sprječava hover lift animaciju tokom loading-a */
+}
+
+/* Kontakt Greška Poruka - Tekst sa greške */
+.kontakt-greska-poruka {
+    /* Šta znači: Poruka greške ispod input polja.
+       Za šta se koristi: "Molim unesite validnu email adresu", itd.
+       Zašto: Pomaže korisniku da zna šta je krivo. */
+    color: var(--greska-boja); /* Crvena boja */
+    font-size: 12px; /* Manji font */
+    margin-top: 5px;
+    min-height: 15px; /* Rezervira prostor čak i ako nema poruke */
+    display: block;
+}
+
+/* Kontakt Uspjeh Okvir - Box sa uspjeh porukom */
+.kontakt-uspjeh-okvir {
+    /* Šta znači: Zelena box sa porukom "Hvala! Vaša poruka je poslana." */
+    background: rgba(46, 204, 113, 0.1); /* Lagana zelena pozadina */
+    border: 1px solid var(--uspjeh-boja); /* Zelena granica */
+    color: var(--uspjeh-boja); /* Zeleni tekst */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center; /* Centriran tekst */
+}
+
+/* Kontakt Dugmad - Kontejner za submit i reset dugmad */
+.kontakt-dugmad {
+    /* Šta znači: Dva dugmada pored jedan drugog.
+       Za šta se koristi: "POŠALJI" i "Očisti" dugmad.
+       Zašto: Fleksibilan layout - oba dugmada su iste veličine. */
+    display: flex;
+    gap: 20px; /* Razmak između dugmadi */
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Button Pošalji i Reset - Osnovna dugmad */
+.btn-posalji, .btn-reset {
+    /* Šta znači: Stilovi za submit i reset dugme.
+       Za šta se koristi: flex: 1 - oba zauzimaju pola mjesta.
+       Zašto: Simetrично raspordjene dugme. */
+    flex: 1; /* Oba zauzimaju pola mjesta */
+    padding: 15px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase; /* Kapitalne slove */
+    cursor: pointer;
+    transition: var(--tranzicija); /* Glatka animacija */
+    display: flex;
+    justify-content: center; /* Centriran tekst */
+    align-items: center;
+    letter-spacing: 1px; /* Razmak između slova */
+}
+
+/* Button Pošalji - Submit dugme */
+.btn-posalji {
+    /* Šta znači: Neon plavo dugme za slanje forme.
+       Za šta se koristi: Korisnik klikne da pošalje poruku.
+       Zašto: Neon plava - primarna akcija. */
+    background: var(--neon-plava); /* Neon plava */
+    color: #000; /* Tamni tekst */
+    border: none;
+}
+
+/* Button Pošalji Hover - Animacija pri hoveru */
+.btn-posalji:hover {
+    /* Šta znači: Jaća sjena i dignu pri hoveru.
+       Za šta se koristi: Pokazuje da je dugme aktivno.
+       Zašto: Poboljšava UX - korisnik zna da je dugme klikljivo. */
+    box-shadow: 0 0 20px var(--neon-plava); /* Jaća sjena */
+    transform: translateY(-3px); /* Digne se 3px gore */
+}
+
+/* Light Mode Pošalji - Bijeli tekst u light mode-u */
+body.light-mode .btn-posalji {
+    /* Šta znači: U light mode-u, tekst je bijeli (bolja kontrast).
+       Za šta se koristi: Osigurava čitljivost na neon plavoj pozadini.
+       Zašto: Kontrast - bijeli na plavo je čitljivo. */
+    color: #fff;
+}
+
+/* Button Reset - Reset dugme */
+.btn-reset {
+    /* Šta znači: Transparentno dugme sa neon granica.
+       Za šta se koristi: Korisnik klikne da očisti formu.
+       Zašto: Sekundarna akcija - manja vidljivost od submit-a. */
+    background: transparent; /* Transparentna */
+    color: var(--neon-plava); /* Neon tekst */
+    border: 2px solid var(--neon-plava); /* Neon granica */
+}
+
+/* Button Reset Hover - Animacija pri hoveru */
+.btn-reset:hover {
+    /* Šta znači: Lagana neon boja u background pri hoveru.
+       Za šta se koristi: Pokazuje da je dugme aktivno.
+       Zašto: Suptilnija od submit-a jer je sekundarna akcija. */
+    background: rgba(0, 212, 255, 0.1); /* Lagana neon boja */
+    transform: translateY(-3px); /* Digne se 3px gore */
+}
+
+/* Kontakt Sekcija Info - Desni sidebar sa informacijama */
+.kontakt-sekcija-info {
+    /* Šta znači: Sekundarna kolona sa statistikom, drštvenim mrežama, kontakt podacima.
+       Za šta se koristi: Prikazuje dodatne informacije pored forme.
+       Zašto: Fleksibilan layout - svi boxovi se raspoređuju vertikalno. */
+    display: flex;
+    flex-direction: column; /* Vertikalni raspored */
+    gap: 30px; /* Razmak između info boxova */
+}
+
+/* Kontakt Statistika, Mreže, Info Dodatno - Centrirani info boxovi */
+.kontakt-statistika-box, .kontakt-mreze-box, .kontakt-info-dodatno {
+    /* Šta znači: Info boxovi su centrirani.
+       Za šta se koristi: Statistika, drštvene mreže, kontakt info - sve centrirano.
+       Zašto: Vizuelna konzistentnost - svi boxovi izgleda isto. */
+    align-items: center; /* Centrirano */
+    text-align: center; /* Centriran tekst */
+}
+
+/* Statistika Tekst - Tekst sa brojem posjeta */
+.statistika-tekst {
+    /* Šta znači: "Ukupan broj posjeta: 123"
+       Za šta se koristi: Prikazuje broj posjeta stranice.
+       Zašto: JavaScript ažurira ovaj broj sa localStorage vrijednostima. */
+    font-size: 1.1rem;
+    color: var(--tekst-svijetli);
+    margin-bottom: 10px;
+}
+
+/* Statistika Linija - Dekorativna neon linija */
+.statistika-linija {
+    /* Šta znači: Lagana neon linija ispod statistike.
+       Za šta se koristi: Vizuelni separator - čini boxu precizniju.
+       Zašto: Dekoracija - odjedna izgleda finalno. */
+    width: 50px;
+    height: 3px;
+    background: var(--neon-plava); /* Neon plava */
+    margin: 15px auto 0; /* Centrirana */
+    border-radius: 5px; /* Zaobljeni uglovi */
+}
+
+/* Ikone Vertikalno - Horizontalni red sa ikona drštvenih mreža */
+.ikone-vertikalno {
+    /* Šta znači: Tri kružne ikonе za Instagram, LinkedIn, YouTube.
+       Za šta se koristi: Prikazuje drštvene mreže s ikonama.
+       Zašto: Flex row - ikonе su pored jedne drugom. */
+    display: flex;
+    flex-direction: row; /* Horizontalno */
+    justify-content: center; /* Centrirano */
+    gap: 20px; /* Razmak između ikona */
+    margin-top: 15px;
+}
+
+/* Mreza Link - Kružan link ka drštvenim mrežama */
+.mreza-link {
+    /* Šta znači: Kružna ikona (60x60px) sa linkуkom ka drštvenim mrežama.
+       Za šta se koristi: Instagram, LinkedIn, YouTube - svaka ima svoju ikonu.
+       Zašto: Moderan dizajn - kružne ikonе su standard u web dizajnu. */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Krug */
+    border: 2px solid var(--staklo-ivica); /* Polu-providna granica */
+    display: flex;
+    justify-content: center; /* Centrirano */
+    align-items: center; /* Centrirano */
+    background: var(--input-bg); /* Polu-providna pozadina */
+    transition: var(--tranzicija); /* Glatka animacija */
+}
+
+/* Mreza Link Slika - Slika (ikona) u kružu */
+.mreza-link img {
+    /* Šta znači: Slika se skalira na 50% veličine kruža.
+       Za šta se koristi: Instagram logo, LinkedIn logo, YouTube logo.
+       Zašto: object-fit: contain - čuva omjer slike. */
+    width: 50%; /* 50% veličine kontejnera */
+    height: 50%;
+    object-fit: contain; /* Čuva omjer */
+}
+
+/* Mreza Link Hover - Animacija pri hoveru */
+.mreza-link:hover {
+    /* Šta znači: Kada korisnik prođe miš preko ikonе.
+       Za šta se koristi: Ikona postaje neon plava i skalira se.
+       Zašto: Pokazuje da je link klikljiv. */
+    border-color: var(--neon-plava); /* Neon granica */
+    box-shadow: 0 0 15px var(--neon-plava); /* Neon sjna */
+    transform: scale(1.1); /* Uvećava 10% */
+}
+
+/* Email Link - Link ka Gmail compose */
+.email-link {
+    /* Šta znači: Email adresa kao link - klikanjem otvara Gmail compose.
+       Za šta se koristi: "eeefiirm@gmail.com" - linko na prijavu forme.
+       Zašto: href="https://mail.google.com/mail/?view=cm&fs=1&to=..." - pre-filled email. */
+    text-decoration: none; /* Uklanja podvlaku */
+    transition: var(--tranzicija); /* Glatka animacija */
+    display: inline-block; /* Omogućava transform */
+    font-size: 1.1rem;
+}
+
+/* Email Link Hover - Animacija pri hoveru */
+.email-link:hover {
+    /* Šta znači: Email se sjaji neonom pri hoveru.
+       Za šta se koristi: Pokazuje da je link klikljiv.
+       Zašto: Poboljšava UX - korisnik zna da može kliknuti. */
+    text-shadow: 0 0 15px var(--neon-plava); /* Neon sjena */
+    transform: scale(1.05); /* Uvećava 5% */
+}
+
+/* Status Podrske - Tekst sa statusom podrške */
+.status-podrske {
+    /* Šta znači: "● Podrška je aktivna" - zelena točka i tekst.
+       Za šta se koristi: Prikazuje da je podrška dostupna.
+       Zašto: Flex - točka i tekst su pored jedne drugom. */
+    margin-top: 25px;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--tekst-svijetli);
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertikalno centrirano */
+    justify-content: center; /* Horizontalno centrirano */
+    gap: 10px; /* Razmak između točke i teksta */
+    opacity: 0.9; /* Lagano bljeđe */
 }
 
-/* Responzivnost za About Us dio */
-@media (max-width: 768px) {
-    .about-grid-layout {
-        grid-template-columns: 1fr;
-    }
-    .about-stats-box {
-        flex-direction: column;
-        gap: 20px;
-    }
+/* Tacka Online - Zelena pulsirna točka */
+.tacka-online {
+    /* Šta znači: Zelena točka koja pulsira - status indikator.
+       Za šta se koristi: Pokazuje da je podrška online/dostupna.
+       Zašto: animation: pulsiranje - stvara živu, dinamičnu vizuelnu feedback. */
+    width: 12px;
+    height: 12px;
+    background-color: var(--uspjeh-boja); /* Zelena boja */
+    border-radius: 50%; /* Kruh */
+    box-shadow: 0 0 10px var(--uspjeh-boja); /* Zelena sjena */
+    animation: pulsiranje 1.5s infinite; /* Kontinuirana pulsacija */
 }
 
