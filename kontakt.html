@@ -1,0 +1,202 @@
+<!-- DOCTYPE - Govori browser-u da je ovo HTML5 dokument. Mora biti na početku fajla. Bez ovoga, browser može ući u "quirks mode" što uzrokuje probleme sa prikazom. -->
+<!DOCTYPE html>
+<!-- <html lang="bs"> - Root element cijelog HTML dokumenta. lang="bs" postavlja jezik na bosanski, što pomaže screen reader-ima i pretraživačima. -->
+<html lang="bs">
+<head>
+    <!-- <head> - Sadrži meta informacije o dokumentu koje se ne prikazuju na stranici. Ove informacije koriste browser-i i pretraživači. -->
+    <!-- Meta tag za encoding - UTF-8 podržava sve jezike i specijalne karaktere. Bez ovoga, neki karakteri mogu biti prikazani pogrešno. -->
+    <meta charset="UTF-8">
+    <!-- Viewport meta tag - Kontroliše prikaz na mobilnim uređajima. width=device-width - stranica prati širinu ekrana, initial-scale=1.0 - bez zoom-a. Bez ovoga, mobilni browser-i prikazuju desktop verziju. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link ka CSS fajlu - Učitava stilove za stranicu. css/tptpstil.css sadrži sve CSS klase za dizajn. -->
+    <link rel="stylesheet" href="css/tptpstil.css">
+    <!-- Favicon link - Postavlja ikonu koja se prikazuje u browser tab-u. Bez ovoga, browser koristi default ikonu. -->
+    <link rel="icon" type="png" href="images/logo_p.png">
+    <!-- <title> - Naslov stranice koji se prikazuje u tab-u. Važno za SEO i korisničko iskustvo. "Contact" deskriptivno označava da je ovo kontakt stranica. -->
+    <title>Contact</title>
+</head>
+<!-- <body> - Glavni sadržaj stranice koji se prikazuje korisniku. class="pozadina" postavlja pozadinsku sliku i layout preko CSS-a na cijeloj stranici. -->
+<body class="pozadina">
+    <!-- <header> - Zaglavlje stranice koje sadrži navigaciju. Semantički element za SEO i pristupačnost. -->
+    <header>
+        <!-- <nav> - Navigacioni element koji sadrži linkove ka drugim stranicama. Pomaže screen reader-ima. class="navbar" - CSS klasa za stilizovanje. -->
+        <nav class="navbar">
+            <!-- Kontejner za logo i meni stavke. Koristi flexbox za horizontalno poravnanje. -->
+            <div class="navigacija">
+                <!-- Logo firme - Koristi se za brendiranje i kao link ka početnoj stranici. -->
+                <div class="logo">
+                    <!-- Slika loga. src="images/logo1p.png" - putanja do slike. alt="Logo Firme" - tekst za screen reader-e ako se slika ne učita. -->
+                    <img src="images/logo1p.png" alt="Logo Firme" class="logo">
+                </div>
+                <!-- <ul> - Neuređena lista sa navigacionim linkovima. class="nav-menu" - CSS klasa za horizontalni meni. Lista je semantički ispravna za navigaciju. -->
+                <ul class="nav-menu">
+                    <!-- Navigacione stavke sa linkovima ka različitim stranicama sajta. Svaka stavka ima href ka odgovarajućoj HTML stranici. -->
+                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="sadrzaj.html">Sadržaj</a></li>
+                    <li class="nav-item"><a href="kontakt.html">Kontakt</a></li>
+                    <!-- Eksterni link ka GitHub repozitoriju projekta. href počinje sa https:// što znači da je eksterni link. -->
+                    <li class="nav-item"><a href="https://github.com/ercc0/Grupa32-TPTP-2026">Github Repo</a></li>
+                </ul>
+                <!-- Hamburger meni za mobilne uređaje. id="hamburger" - JavaScript koristi ovaj ID za toggle funkcionalnost. Vidljiv samo na malim ekranima (CSS media query). -->
+                <div class="hamburger" id="hamburger"> 
+                    <!-- Tri horizontalne linije koje formiraju hamburger ikonu. CSS ih stilizuje kao animirane bar-ove. -->
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- <main> - Glavni sadržaj stranice. class="kontakt-glavni-okvir" postavlja grid layout sa dvije kolone (forma i sidebar info). Označava primarni sadržaj za SEO. -->
+    <main class="kontakt-glavni-okvir">
+        <!-- <section> - Sekcija koja sadrži kontakt formu. class="kontakt-sekcija-forme kontakt-box" - CSS klase za stilizovanje i animaciju. -->
+        <section class="kontakt-sekcija-forme kontakt-box">
+            <!-- Glavni naslov stranice. <h1> - Najvažniji heading, koristi se za SEO. class="kontakt-naslov" - CSS klasa za stilizovanje. -->
+            <h1 class="kontakt-naslov">Kontakt Forma</h1>
+            <!-- Podnaslov koji objašnjava svrhu forme i poziva korisnika da kontaktira. -->
+            <p class="kontakt-podnaslov">Pošaljite nam vaše zahtjeve, a naš tim će vam što prije odgovoriti!</p>
+
+            <!-- <form> - HTML forma za unos podataka. id="kontaktForma" - JavaScript koristi ovaj ID za validaciju i submit. novalidate - Onemogućava built-in browser validaciju jer koristimo custom JavaScript. -->
+            <form id="kontaktForma" novalidate>
+                <!-- Kontejner za ime i prezime u istom redu. class="kontakt-red" - CSS klasa za flex layout. -->
+                <div class="kontakt-red">
+                    <!-- Kontejner za input polje i labelu. class="kontakt-grupa" - CSS klasa za stilizovanje grupe. -->
+                    <div class="kontakt-grupa">
+                        <!-- <label> - Labela za input polje. for="ime" - Povezuje labelu sa input-om (poboljšava pristupačnost). -->
+                        <label for="ime" class="kontakt-labela">Ime</label>
+                        <!-- <input> - Input polje za tekst. id="ime" - JavaScript koristi ovaj ID za validaciju. type="text" - Akceptuje samo tekst. placeholder - Hint tekst koji se prikazuje kada je polje prazno. -->
+                        <input type="text" id="ime" class="kontakt-input" placeholder="Vaše ime">
+                        <!-- Span za prikaz poruka greške. JavaScript popunjava ovaj element kada validacija fail-uje. -->
+                        <span class="kontakt-greska-poruka"></span>
+                    </div>
+                    <div class="kontakt-grupa">
+                        <label for="prezime" class="kontakt-labela">Prezime</label>
+                        <input type="text" id="prezime" class="kontakt-input" placeholder="Vaše prezime">
+                        <span class="kontakt-greska-poruka"></span>
+                    </div>
+                </div>
+
+                <!-- Email input polje sa type="email" - browser automatski validira email format. -->
+                <div class="kontakt-grupa">
+                    <label for="email" class="kontakt-labela">Email adresa</label>
+                    <input type="email" id="email" class="kontakt-input" placeholder="ime@primjer.com">
+                    <span class="kontakt-greska-poruka"></span>
+                </div>
+
+                <!-- Telefonski broj - type="text" jer telefonski brojevi mogu sadržavati znakove kao "-" i razmake. -->
+                <div class="kontakt-grupa">
+                    <label for="telefon" class="kontakt-labela">Telefon</label>
+                    <input type="text" id="telefon" class="kontakt-input" placeholder="06x-xxx-xxx">
+                    <span class="kontakt-greska-poruka"></span>
+                </div>
+
+                <!-- Tema upita - Dropdown meni za odabir razloga kontaktiranja. -->
+                <div class="kontakt-grupa">
+                    <label for="tema" class="kontakt-labela">Tema upita</label>
+                    <!-- <select> - Dropdown meni za odabir opcija. id="tema" - JavaScript koristi ovaj ID za validaciju. -->
+                    <select id="tema" class="kontakt-select">
+                        <!-- Default opcija bez vrijednosti - korisnik mora odabrati nešto specifično. -->
+                        <option value="">Odaberite temu...</option>
+                        <!-- Specifične opcije za temu upita. value atribut se koristi u formi za identifikaciju. -->
+                        <option value="saradnja">Poslovna saradnja</option>
+                        <option value="podrska">Tehnička podrška</option>
+                    </select>
+                    <span class="kontakt-greska-poruka"></span>
+                </div>
+
+                <!-- Poruka od korisnika - Višelinijsko tekstualno polje. -->
+                <div class="kontakt-grupa">
+                    <label for="poruka" class="kontakt-labela">Vaša poruka</label>
+                    <!-- <textarea> - Višelinijsko tekstualno polje. id="poruka" - JavaScript koristi ovaj ID. rows="4" - Postavlja početnu visinu na 4 reda. -->
+                    <textarea id="poruka" class="kontakt-textarea" rows="4"></textarea>
+                    <span class="kontakt-greska-poruka"></span>
+                </div>
+
+                <!-- Kontejner za dugmad forme. class="kontakt-dugmad" - CSS klasa za flex layout dugmadi sa gap-om. -->
+                <div class="kontakt-dugmad">
+                    <!-- Submit dugme - Šalje formu kada se klikne. type="submit" - Pokreće submit event forme. -->
+                    <button type="submit" class="btn-posalji">POŠALJI</button>
+                    <!-- Reset dugme - Čisti formu bez slanja. type="button" - Sprječava default submit ponašanje. id="resetDugme" - JavaScript koristi ovaj ID za funkcionalnost. -->
+                    <button type="button" id="resetDugme" class="btn-reset">Očisti</button>
+                </div>
+            </form>
+
+            <!-- Kontejner za uspjeh poruku nakon slanja forme. id="uspjehBox" - JavaScript koristi ovaj ID za prikaz/sakrivanje. style="display: none;" - Sakriven po default-u, prikazuje se nakon uspješnog slanja. -->
+            <div id="uspjehBox" class="kontakt-uspjeh-okvir" style="display: none;">
+                <!-- Element za prikaz personalizovane uspjeh poruke. id="uspjehPorukaText" - JavaScript popunjava ovaj paragraf sa imenom korisnika. -->
+                <p id="uspjehPorukaText"></p>
+            </div>
+        </section>
+
+        <!-- <aside> - Desni sidebar sa dodatnim informacijama. class="kontakt-sekcija-info" - CSS klasa za vertikalni layout. Označava sekundarni sadržaj. -->
+        <aside class="kontakt-sekcija-info">
+            <!-- Box sa dugmetom za promjenu teme. -->
+            <div class="kontakt-box">
+                <!-- Dugme za promjenu teme između dark i light mode-a. id="tema-toggle" - JavaScript koristi ovaj ID za funkcionalnost. style="width: 100%;" - Inline stil za punu širinu. Emoji-ji za vizuelnu indikaciju. -->
+                <button id="tema-toggle" class="btn theme-btn" style="width: 100%;">☀ Svijetla / Tamna tema 🌙</button>
+            </div>
+
+            <!-- Box sa statistikom posjeta stranice. -->
+            <div class="kontakt-statistika-box kontakt-box">
+                <!-- Naslov sekcije sa statistikom. -->
+                <h3 class="info-naslov">Statistika stranice</h3>
+                <!-- Prikaz broja posjeta. id="brojac-posjeta" - JavaScript popunjava ovaj element sa brojem. class="neon-text" - CSS klasa za neon efekat na broju. -->
+                <p class="statistika-tekst">Ukupan broj posjeta: <strong id="brojac-posjeta" class="neon-text">0</strong></p>
+                <!-- Dekorativna linija ispod statistike. -->
+                <div class="statistika-linija"></div>
+            </div>
+
+            <!-- Box sa društvenim mrežama. -->
+            <div class="kontakt-mreze-box kontakt-box rastegni-box">
+                <!-- Naslov sekcije sa mrežama. -->
+                <h3 class="info-naslov">Naše Društvene Mreže</h3>
+                <!-- Tekst koji poziva korisnika da prati. -->
+                <p class="podnaslov-mreze">Pratite nas na sljedećim društvenim mrežama!</p>
+                <!-- Kontejner za ikone društvenih mreža. class="ikone-vertikalno" - CSS klasa za hori
+                zontalni layout ikona. -->
+                <div class="ikone-vertikalno">
+                    <!-- Link ka Instagram profilu. target="_blank" - Otvara u novom tabu. class="mreza-link" - CSS klasa za stilizovanje linka kao kruga. -->
+                    <a href="https://www.instagram.com/eeefiirm" target="_blank" class="mreza-link"><img src="images/instagram.png" alt="Instagram"></a>
+                    <!-- Link ka LinkedIn-u. -->
+                    <a href="https://www.linkedin.com/in/eee-firm-065982409/?isSelfProfile=true" target="_blank" class="mreza-link"><img src="images/LN.png" alt="linkedin"></a>
+                    <!-- Link ka YouTube kanalu sa ID-om kanala. -->
+                    <a href="https://www.youtube.com/channel/UCuNmVz0BySKg9_gNVGwnv-A" target="_blank" class="mreza-link"><img src="images/youtube.png" alt="Youtube"></a>
+                </div>
+            </div>
+
+            <!-- Box sa dodatnim kontakt informacijama. -->
+            <div class="kontakt-info-dodatno kontakt-box">
+                <!-- Naslov sekcije sa kontakt podacima. -->
+                <h3 class="info-naslov">Kontakt Podaci</h3>
+                <!-- Sekcija sa radnim vremenima. -->
+                <div class="info-stavka">
+                    <p class="podnaslov-mreze">Radno vrijeme:</p>
+                    <!-- Radno vrijeme sa neon efektom za istaknute informacije. -->
+                    <p class="neon-text">Pon - Pet: 09:00 - 17:00</p>
+                    <p class="neon-text">Vikend: Zatvoreno</p>
+                </div>
+                <!-- Sekcija sa email adresom. -->
+                <div class="info-stavka">
+                    <p class="podnaslov-mreze">Email adresa:</p>
+                    <!-- Email link koji otvara Gmail compose prozor. href sadrži Google Mail URL sa pre-filled "to" adresom. -->
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=eeefiirm@gmail.com" target="_blank" class="neon-text email-link">eeefiirm@gmail.com</a>
+                </div>
+                <!-- Indikator statusa podrške. -->
+                <div class="status-podrske">
+                    <!-- Zelena tačka koja pulsira (CSS animacija). class="tacka-online" - CSS klasa sa animacijom. -->
+                    <span class="tacka-online"></span> Podrška je aktivna
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- <footer> - Donji dio stranice sa autorskim pravima. class="footer" - CSS klasa za stilizovanje. Označava kraj stranice za SEO i pristupačnost. -->
+    <footer class="footer">
+        <!-- Copyright informacija sa imenima autora i godinom. <b> - Bold tekst za istaknute informacije. &copy; - HTML entity za copyright simbol. -->
+        <b>Ermin Murić, Ermin Delić, Enis Srabović &copy; 2026. </b>
+    </footer>
+    <!-- <script> - Učitava JavaScript fajl za interaktivnost stranice. src="js/tptpskripte.js" - Putanja do JavaScript fajla. Script na kraju body-a osigurava da se učita nakon HTML-a, što poboljšava performanse i sprječava greške. -->
+    <script src="js/tptpskripte.js"></script>
+</body>
+</html>
