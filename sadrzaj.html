@@ -1,114 +1,135 @@
 <!DOCTYPE html>
-<html lang="bs"> <head>
+<html lang="bs">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/tptpstil.css"> <link rel="icon" type="png" href="images/logo1p.png">
+    <link rel="stylesheet" href="css/tptpstil.css"> <link rel="icon" type="png" href="images/logo_p.png">
     <title>Sadržaj - EEE Gaming</title>
 </head>
-<body>
+<body class="sadrzaj-body">
     <div id="vrh"></div>
 
-    <header class="pozadina-mini">
+    <header>
         <nav class="navbar">
             <div class="navigacija">
-                <div class="logo">
-                    <img src="images/logo1p.png" alt="Logo Firme" class="logo">
-                </div>
+                <div class="logo"><img src="images/logo1p.png" alt="Logo" class="logo"></div>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html">Home</a></li>
                     <li class="nav-item"><a href="sadrzaj.html">Sadržaj</a></li>
-                    <li class="nav-item"><a href="projekti.html">Projekti</a></li>
-                    <li class="nav-item"><a href="FAQ.html">FAQ</a></li>
-                    <li class="nav-item"><a href="about.html">About us</a></li>
                     <li class="nav-item"><a href="kontakt.html">Kontakt</a></li>
-                    <li class="nav-item"><a href="https://github.com/ercc0/Grupa32-TPTP-2026">Github Repo</a></li>
+                    <li class="nav-item"><a href="https://github.com/ercc0/Grupa32-TPTP-2026" target="_blank">Github Repo</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger">
-                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-                </div>
             </div>
         </nav>
-        <div class="hero-text">
-            <h1>Sadržaj</h1>
-            <p>Sve karakteristike i resursi naše firme</p>
-        </div>
     </header>
 
     <main class="sadrzaj-kontejner">
         
-        <section class="sekcija-sadrzaj">
-            <h2>Kategorije naših usluga</h2>
-            <ul class="glavna-lista"> <li>Razvoj Softvera
-                    <ul> <li>Game Engine (Unreal Engine 5)</li>
-                        <li>Backend sistemi za multiplayer</li>
+        <section class="sadrzaj-hero">
+            <button id="tema-toggle" class="btn theme-btn">☀ Svijetla / Tamna tema 🌙</button>
+            <h1 id="hero-title" class="neon-text">INTERAKTIVNI PANEL</h1>
+            <p>Sve multimedijalne komponente na jednom mjestu.</p>
+        </section>
+
+        <section class="glass-sekcija">
+            <h2>📍 Interaktivni Navigacijski Logo</h2>
+            <div class="mapa-centar">
+                <img src="images/glavnilogo.png" usemap="#mapa-firme" alt="Glavni logo firme sa klikabilnim zonama" class="img-mapa">
+                <map name="mapa-firme">
+                    <area shape="rect" coords="0,0,250,500" alt="Početna" href="index.html">
+                    <area shape="rect" coords="500,0,1000,500" alt="Kontakt" href="kontakt.html">
+                </map>
+            </div>
+        </section>
+
+        <section class="glass-sekcija">
+            <h2>📂 Kategorizacija Tehnologija</h2>
+            <ul class="glavna-lista">
+                <li><strong>Frontend Razvoj</strong>
+                    <ul>
+                        <li>HTML5 / CSS3 (Grid & Flexbox)</li>
+                        <li>JavaScript (ES6+ i Canvas API)</li>
+                        <li>Responsive Design</li>
                     </ul>
                 </li>
-                <li>Digitalni Dizajn
+                <li><strong>Game Development</strong>
                     <ul>
-                        <li>3D Modelovanje karaktera</li>
-                        <li>UI/UX dizajn interfejsa</li>
+                        <li>Unity Engine (C# skripte)</li>
+                        <li>Assett Dizajn (2D/3D)</li>
+                        <li>Fizika i mehanika kretanja</li>
                     </ul>
                 </li>
             </ul>
         </section>
 
-        <section class="sekcija-sadrzaj">
-            <h2>Cjenovnik i karakteristike licenci</h2>
-            <table class="tptp-tabela">
-                <thead>
-                    <tr>
-                        <th>Paket</th>
-                        <th>Cijena</th>
-                        <th>Podrška</th>
-                        <th>Trajanje</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Starter</td><td>0 KM</td><td>Zajednica</td><td>30 dana</td></tr>
-                    <tr><td>Pro</td><td>49 KM</td><td>Email 24/7</td><td>1 godina</td></tr>
-                    <tr><td>Elite</td><td>149 KM</td><td>Direktni poziv</td><td>Neograničeno</td></tr>
-                    <tr><td>Studio</td><td>499 KM</td><td>Tim stručnjaka</td><td>Po projektu</td></tr>
-                    <tr><td>Enterprise</td><td>Kontakt</td><td>Custom</td><td>Po dogovoru</td></tr>
-                </tbody>
-            </table>
+        <section class="glass-sekcija">
+            <h2>📊 Cjenovnik i Specifikacije Usluga</h2>
+            <div class="tabela-scroll">
+                <table class="moderna-tabela">
+                    <thead>
+                        <tr>
+                            <th>Paket Usluga</th>
+                            <th>Vrijeme Izrade</th>
+                            <th>Tehnologija</th>
+                            <th>Cijena (KM)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Basic Web</td>
+                            <td>7 Dana</td>
+                            <td>HTML/CSS</td>
+                            <td>500 KM</td>
+                        </tr>
+                        <tr>
+                            <td>Business Pro</td>
+                            <td>15 Dana</td>
+                            <td>React/Node</td>
+                            <td>1200 KM</td>
+                        </tr>
+                        <tr>
+                            <td>Mini Game</td>
+                            <td>20 Dana</td>
+                            <td>JS Canvas</td>
+                            <td>800 KM</td>
+                        </tr>
+                        <tr>
+                            <td>Full RPG Game</td>
+                            <td>60 Dana</td>
+                            <td>Unity / C#</td>
+                            <td>3500 KM</td>
+                        </tr>
+                        <tr>
+                            <td>UI/UX Redizajn</td>
+                            <td>5 Dana</td>
+                            <td>Figma</td>
+                            <td>300 KM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
-       <section class="sekcija-okvir" style="text-align: center;">
-            <h2>Interaktivna zona (Image Map)</h2>
-            <p>Kliknite na lijevu ili desnu stranu slike ispod:</p>
-            
-            <div style="display: flex; justify-content: center; margin-top: 20px;">
-                <img src="images/glavnilogo.png" usemap="#mapa-firme" alt="Interaktivni logo" 
-                     style="max-width: 100%; height: auto; width: 500px; border: 1px solid #333;">
-                
-                <map name="mapa-firme">
-                    <area shape="rect" coords="0,0,300,300" alt="Početna" href="index.html">
-                    <area shape="circle" coords="450,150,100" alt="Kontakt" href="kontakt.html">
-                </map>
+        <section class="glass-sekcija">
+            <h2>🖼️ Galerija Razvojnih Faza</h2>
+            <div class="galerija-grid">
+                <div class="galerija-item"><img src="images/slika1.png" alt="Prikaz RPG level dizajna u mraku"></div>
+                <div class="galerija-item"><img src="images/slika2.png" alt="3D model glavnog karaktera u T-pose"></div>
+                <div class="galerija-item"><img src="images/slika3.png" alt="Koncept art pustinjskog grada"></div>
+                <div class="galerija-item"><img src="images/slika4.png" alt="UI dizajn glavnog menija za mobilnu igru"></div>
+                <div class="galerija-item"><img src="images/slika5.png" alt="Prikaz čistog koda u VS Code editoru"></div>
+                <div class="galerija-item"><img src="images/slika6.png" alt="Timski rad u uredu na novom projektu"></div>
             </div>
         </section>
-        <section class="sekcija-okvir">
-            <h2>Galerija projekata</h2>
-            <div class="galerija-mreza" style="max-width: 800px; margin: 0 auto;">
-                <img src="images/slika1.png" alt="Prikaz RPG okruženja">
-                <img src="images/slika2.png" alt="3D model glavnog heroja">
-                <img src="images/slika3.png" alt="Koncept art pustinje">
-                <img src="images/slika4.png" alt="UI dizajn menija">
-                <img src="images/slika5.png" alt="Prikaz koda u editoru">
-                <img src="images/slika6.png" alt="Timski rad u uredu">
-            </div>
-        </section>
-        
-        <div class="bookmark-link">
-            <a href="#vrh">↑ Skoči na vrh stranice</a>
+
+        <div class="jump-top">
+            <a href="#vrh" class="btn-top">▲ Skoči na vrh</a>
         </div>
-
     </main>
 
     <footer class="footer">
-        <b>Ermin Murić, Ermin Delić, Enis Srabović &copy; 2026. </b>
+        <b>Ermin Murić, Ermin Delić, Enis Srabović &copy; 2026.</b>
     </footer>
 
-    <script src="js/tptpskripte.js"></script>
-</body>
+    <script src="js/tptpskripte.js"></script>  </body>
 </html>
